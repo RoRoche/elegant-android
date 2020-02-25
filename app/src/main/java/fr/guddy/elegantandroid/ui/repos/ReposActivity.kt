@@ -9,47 +9,74 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import fr.guddy.elegantandroid.*
+import fr.guddy.elegantandroid.concurrency.Callback
+import fr.guddy.elegantandroid.concurrency.Job
+import fr.guddy.elegantandroid.concurrency.SimpleAsyncJob
 import fr.guddy.elegantandroid.databinding.ReposBinding
 import fr.guddy.elegantandroid.ui.repo.RepoActivityDestination
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import java.lang.ref.WeakReference
+import java.util.concurrent.Callable
 
 class ReposActivity : AppCompatActivity(), OnRepoClickListener {
 
-    private var disposable: Disposable? = null
+    private var job: Job? = null
     private lateinit var dbHelper: ElegantAndroidDbHelper
     private lateinit var binding: ReposBinding
     private lateinit var reposViewState: MutableLiveData<ViewState<ReposBinding>>
 
-    private fun loadReposFromDb() {
-        disposable = RxDbReposByOwner(
-            db = dbHelper.readableDatabase,
-            owner = "RoRoche"
-        ).single(
-        ).subscribeOn(
-            Schedulers.newThread()
-        ).observeOn(
-            AndroidSchedulers.mainThread()
-        ).subscribe(
-            { repos: List<Repo> ->
-                if (repos.isNullOrEmpty()) {
-                    reposViewState.value =
-                        ReposViewState.IsEmpty
-                } else {
-                    reposViewState.value =
-                        ReposViewState.WithContent(
-                            layoutInflater,
-                            repos,
-                            this
-                        )
-                }
-            },
-            {
-                reposViewState.value =
-                    ReposViewState.IsError
+    private class OnReposLoaded(
+        private val activity: WeakReference<ReposActivity>
+    ) : Callback<List<Repo>> {
+        constructor(activity: ReposActivity) : this(WeakReference(activity))
+
+        override fun accept(data: List<Repo>) {
+            if (data.isNullOrEmpty()) {
+                activity.get()?.reposViewState?.value = ReposViewState.IsEmpty
+            } else {
+                activity.get()?.reposViewState?.value =
+                    ReposViewState.WithContent(
+                        activity.get()?.layoutInflater!!,
+                        data,
+                        activity.get()!!
+                    )
             }
+        }
+
+        override fun dispose() {
+            activity.clear()
+        }
+    }
+
+    private class OnReposLoadingError(
+        private val activity: WeakReference<ReposActivity>
+    ) : Callback.OnError {
+        constructor(activity: ReposActivity) : this(WeakReference(activity))
+
+        override fun accept(data: Throwable) {
+            activity.get()?.reposViewState?.value = ReposViewState.IsError
+        }
+
+        override fun dispose() {
+            activity.clear()
+        }
+    }
+
+    private fun loadReposFromDb() {
+        job = SimpleAsyncJob<List<Repo>>(
+            callable = Callable {
+                DbReposByOwner(
+                    SelectReposByOwner(
+                        db = dbHelper.readableDatabase,
+                        owner = "RoRoche"
+                    ).result()
+                )
+            },
+            onSuccess = Callback.OnMainThread(
+                delegate = OnReposLoaded(this)
+            ),
+            onError = OnReposLoadingError(this)
         )
+        job?.run()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +84,7 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
 //        setContentView(R.layout.activity_main)
         binding = ReposBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         dbHelper = ElegantAndroidDbHelper(
             applicationContext,
             listOf(RepoTable())
@@ -123,9 +151,7 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
 
     override fun onDestroy() {
         dbHelper.close()
-        if (disposable?.isDisposed == false) {
-            disposable?.dispose()
-        }
+        job?.dispose()
         super.onDestroy()
     }
 

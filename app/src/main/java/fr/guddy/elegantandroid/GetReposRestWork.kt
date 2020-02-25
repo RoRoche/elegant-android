@@ -23,6 +23,7 @@ class GetReposRestWork(
             ).addAll(
                 repos
             )
+            dbHelper.close()
             return Result.success()
         } catch (exception: Exception) {
             return Result.failure()
