@@ -4,13 +4,13 @@ import java.util.concurrent.Callable
 
 class SimpleAsyncJob<T>(
     runnable: Runnable,
-    private val onSuccess: Callback.OnMainThread<T>,
-    private val onError: Callback.OnError
+    private val onSuccess: Callback<T>,
+    private val onError: Callback<Throwable>
 ) : Job.Async(runnable) {
     constructor(
         callable: Callable<T>,
-        onSuccess: Callback.OnMainThread<T>,
-        onError: Callback.OnError
+        onSuccess: Callback<T>,
+        onError: Callback<Throwable>
     ) : this(
         Runnable {
             try {

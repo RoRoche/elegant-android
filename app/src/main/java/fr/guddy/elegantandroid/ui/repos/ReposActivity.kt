@@ -74,7 +74,9 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
             onSuccess = Callback.OnMainThread(
                 delegate = OnReposLoaded(this)
             ),
-            onError = OnReposLoadingError(this)
+            onError = Callback.OnMainThread(
+                OnReposLoadingError(this)
+            )
         )
         job?.run()
     }

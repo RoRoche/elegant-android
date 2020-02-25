@@ -8,8 +8,6 @@ import fr.guddy.elegantandroid.concurrency.Callback
 import fr.guddy.elegantandroid.concurrency.Job
 import fr.guddy.elegantandroid.concurrency.SimpleAsyncJob
 import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import java.lang.ref.WeakReference
 import java.util.concurrent.Callable
 
@@ -75,7 +73,9 @@ class RepoActivity : AppCompatActivity() {
             onSuccess = Callback.OnMainThread(
                 delegate = OnRepoLoaded(this)
             ),
-            onError = OnRepoLoadingError(this)
+            onError = Callback.OnMainThread(
+                OnRepoLoadingError(this)
+            )
         )
         job?.run()
     }
