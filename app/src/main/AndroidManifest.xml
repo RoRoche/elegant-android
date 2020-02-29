@@ -14,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.repo.RepoActivity" />
-        <activity android:name=".ui.repos.ReposActivity">
+        <activity android:name=".screens.repo.RepoActivity" />
+        <activity android:name=".screens.repos.ReposActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

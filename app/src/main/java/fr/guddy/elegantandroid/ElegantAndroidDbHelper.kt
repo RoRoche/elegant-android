@@ -3,6 +3,7 @@ package fr.guddy.elegantandroid
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import fr.guddy.elegantandroid.persistence.Table
 
 class ElegantAndroidDbHelper(
     context: Context,

@@ -3,13 +3,16 @@ package fr.guddy.elegantandroid
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import fr.guddy.elegantandroid.databinding.RepoBinding
-import fr.guddy.elegantandroid.ui.repos.OnRepoClickListener
-import fr.guddy.elegantandroid.ui.repos.ReposAdapter
+import fr.guddy.elegantandroid.screens.repos.OnRepoClickListener
+import fr.guddy.elegantandroid.screens.repos.ReposAdapter
+import fr.guddy.elegantandroid.ui.Bindable
+import fr.guddy.elegantandroid.ui.Renderable
 
 class RenderableRepos(
     private val origin: List<Bindable<RepoBinding>>,
     private val adapter: RecyclerView.Adapter<ReposAdapter.RepoViewHolder>
-) : List<Bindable<RepoBinding>> by origin, Renderable<RecyclerView> {
+) : List<Bindable<RepoBinding>> by origin,
+    Renderable<RecyclerView> {
 
     constructor(
         origin: List<Bindable<RepoBinding>>,

@@ -2,6 +2,7 @@ package fr.guddy.elegantandroid
 
 import androidx.work.Data
 import androidx.work.workDataOf
+import fr.guddy.elegantandroid.workmanager.InputData
 
 class GetReposRestWorkData(
     val baseUrl: String,

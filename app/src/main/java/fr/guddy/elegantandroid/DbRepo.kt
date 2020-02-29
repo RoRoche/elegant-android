@@ -2,8 +2,10 @@ package fr.guddy.elegantandroid
 
 import android.content.ContentValues
 import android.database.Cursor
+import fr.guddy.elegantandroid.persistence.Persistable
 
-class DbRepo(origin: Repo) : Repo.Wrap(origin), Persistable {
+class DbRepo(origin: Repo) : Repo.Wrap(origin),
+    Persistable {
     constructor(cursor: Cursor) : this(
         SimpleRepo(
             id = cursor.getLong(cursor.getColumnIndexOrThrow(ID)),

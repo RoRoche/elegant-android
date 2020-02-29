@@ -2,9 +2,12 @@ package fr.guddy.elegantandroid
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import fr.guddy.elegantandroid.persistence.queries.DbQuery
+import fr.guddy.elegantandroid.persistence.queries.rx.RxDbQuery
 import io.reactivex.Single
 
-class RxDbReposByOwner(private val origin: DbQuery<Cursor>) : RxDbQuery<List<Repo>> {
+class RxDbReposByOwner(private val origin: DbQuery<Cursor>) :
+    RxDbQuery<List<Repo>> {
     constructor(
         db: SQLiteDatabase,
         owner: String

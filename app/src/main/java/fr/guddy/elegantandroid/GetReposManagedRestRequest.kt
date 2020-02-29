@@ -2,6 +2,8 @@ package fr.guddy.elegantandroid
 
 import androidx.work.ListenableWorker
 import androidx.work.WorkManager
+import fr.guddy.elegantandroid.workmanager.ManagedRestRequest
+import fr.guddy.elegantandroid.workmanager.OneTimeRestWorkRequest
 
 class GetReposManagedRestRequest(
     origin: ManagedRestRequest

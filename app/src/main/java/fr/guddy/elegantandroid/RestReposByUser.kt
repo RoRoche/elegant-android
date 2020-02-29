@@ -1,7 +1,8 @@
 package fr.guddy.elegantandroid
 
+import fr.guddy.elegantandroid.rest.SuccessfulRestRequest
+import fr.guddy.elegantandroid.rest.WithBodyRestRequest
 import okhttp3.OkHttpClient
-
 
 class RestReposByUser(private val repos: List<Repo>) : List<Repo> by repos {
     constructor(

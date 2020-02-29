@@ -1,6 +1,7 @@
 package fr.guddy.elegantandroid
 
 import android.database.sqlite.SQLiteDatabase
+import fr.guddy.elegantandroid.persistence.queries.*
 
 class DbRepos(
     private val db: SQLiteDatabase
