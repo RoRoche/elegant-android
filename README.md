@@ -4,3 +4,4 @@ Android project applying Elegant Objects principles
 
 ![Elegant Objects](https://www.elegantobjects.org/badge.svg)
 ![intellij-idea](https://www.elegantobjects.org/intellij-idea.svg)
+![Bitrise](https://app.bitrise.io/app/4b269ce2e4a54a10/status.svg?token=cB1XomN4oEA59zjl1ijlig&branch=master)
