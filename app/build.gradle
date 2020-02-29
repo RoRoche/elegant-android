@@ -19,6 +19,9 @@ android {
 //                                     "$projectDir/schemas".toString()]
 //            }
 //        }
+        lintOptions {
+            abortOnError false
+        }
     }
     buildTypes {
         release {
