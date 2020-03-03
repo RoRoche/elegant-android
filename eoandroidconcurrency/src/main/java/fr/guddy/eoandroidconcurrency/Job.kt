@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.concurrency
+package fr.guddy.eoandroidconcurrency
 
 interface Job: Disposable {
     fun run()

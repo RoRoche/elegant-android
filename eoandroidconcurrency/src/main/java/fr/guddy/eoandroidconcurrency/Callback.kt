@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.concurrency
+package fr.guddy.eoandroidconcurrency
 
 import android.os.Handler
 import android.os.Looper

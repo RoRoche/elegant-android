@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.concurrency
+package fr.guddy.eoandroidconcurrency
 
 import java.util.concurrent.Callable
 

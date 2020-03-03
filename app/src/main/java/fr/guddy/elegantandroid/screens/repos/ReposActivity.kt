@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import fr.guddy.elegantandroid.*
-import fr.guddy.elegantandroid.concurrency.Callback
-import fr.guddy.elegantandroid.concurrency.Job
-import fr.guddy.elegantandroid.concurrency.SimpleAsyncJob
+import fr.guddy.eoandroidconcurrency.Callback
+import fr.guddy.eoandroidconcurrency.Job
+import fr.guddy.eoandroidconcurrency.SimpleAsyncJob
 import fr.guddy.elegantandroid.databinding.ReposBinding
 import fr.guddy.elegantandroid.screens.repo.RepoActivityDestination
 import fr.guddy.elegantandroid.ui.MutableViewState
