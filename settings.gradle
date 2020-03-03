@@ -1,2 +1,7 @@
 include ':app'
 rootProject.name='ElegantAndroid'
+include ':eoandroidpersistence'
+include ':eoandroidconcurrency'
+include ':EoRest'
+include ':eoandroidworkmanager'
+include ':eoandroidui'
