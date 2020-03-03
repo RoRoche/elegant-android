@@ -5,8 +5,8 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import fr.guddy.elegantandroid.*
 import fr.guddy.elegantandroid.databinding.ReposBinding
-import fr.guddy.elegantandroid.ui.Renderable
-import fr.guddy.elegantandroid.ui.ViewState
+import fr.guddy.eoandroidui.Renderable
+import fr.guddy.eoandroidui.ViewState
 
 sealed class ReposViewState :
     ViewState<ReposBinding> {

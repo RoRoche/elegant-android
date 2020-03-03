@@ -1,7 +1,7 @@
 package fr.guddy.elegantandroid
 
 import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
-import fr.guddy.elegantandroid.ui.Bindable
+import fr.guddy.eoandroidui.Bindable
 
 class DetailRepo(
     origin: Repo

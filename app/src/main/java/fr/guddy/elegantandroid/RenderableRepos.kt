@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.guddy.elegantandroid.databinding.RepoBinding
 import fr.guddy.elegantandroid.screens.repos.OnRepoClickListener
 import fr.guddy.elegantandroid.screens.repos.ReposAdapter
-import fr.guddy.elegantandroid.ui.Bindable
-import fr.guddy.elegantandroid.ui.Renderable
+import fr.guddy.eoandroidui.Bindable
+import fr.guddy.eoandroidui.Renderable
 
 class RenderableRepos(
     private val origin: List<Bindable<RepoBinding>>,

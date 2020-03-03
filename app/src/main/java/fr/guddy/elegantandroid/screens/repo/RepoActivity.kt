@@ -8,8 +8,8 @@ import fr.guddy.eoandroidconcurrency.Callback
 import fr.guddy.eoandroidconcurrency.Job
 import fr.guddy.eoandroidconcurrency.SimpleAsyncJob
 import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
-import fr.guddy.elegantandroid.ui.MutableViewState
-import fr.guddy.elegantandroid.ui.ViewState
+import fr.guddy.eoandroidui.MutableViewState
+import fr.guddy.eoandroidui.ViewState
 import java.lang.ref.WeakReference
 import java.util.concurrent.Callable
 

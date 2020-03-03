@@ -1,10 +1,9 @@
-package fr.guddy.elegantandroid.ui
+package fr.guddy.eoandroidui
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.viewbinding.ViewBinding
-import fr.guddy.eoandroidui.ViewState
 
 class MutableViewState<T : ViewBinding>(
     lifecycleOwner: LifecycleOwner,

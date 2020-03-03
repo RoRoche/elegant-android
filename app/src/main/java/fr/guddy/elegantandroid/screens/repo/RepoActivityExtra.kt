@@ -1,7 +1,7 @@
 package fr.guddy.elegantandroid.screens.repo
 
 import android.os.Bundle
-import fr.guddy.elegantandroid.ui.Extra
+import fr.guddy.eoandroidui.Extra
 
 class RepoActivityExtra(val repoId: Long) : Extra {
 

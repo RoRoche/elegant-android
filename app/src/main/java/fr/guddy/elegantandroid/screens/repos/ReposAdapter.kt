@@ -3,7 +3,7 @@ package fr.guddy.elegantandroid.screens.repos
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import fr.guddy.elegantandroid.ui.Bindable
+import fr.guddy.eoandroidui.Bindable
 import fr.guddy.elegantandroid.Repo
 import fr.guddy.elegantandroid.databinding.RepoBinding
 

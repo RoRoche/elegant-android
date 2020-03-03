@@ -1,6 +1,5 @@
-package fr.guddy.elegantandroid.ui
+package fr.guddy.eoandroidui
 
 import androidx.viewbinding.ViewBinding
-import fr.guddy.eoandroidui.Bindable
 
 interface ViewState<T : ViewBinding> : Bindable<T>

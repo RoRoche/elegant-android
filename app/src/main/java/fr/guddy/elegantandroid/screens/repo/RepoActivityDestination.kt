@@ -2,7 +2,7 @@ package fr.guddy.elegantandroid.screens.repo
 
 import android.app.Activity
 import android.content.Intent
-import fr.guddy.elegantandroid.ui.Destination
+import fr.guddy.eoandroidui.Destination
 
 class RepoActivityDestination(
     private val origin: Activity,

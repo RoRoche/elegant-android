@@ -1,8 +1,8 @@
 package fr.guddy.elegantandroid.screens.repo
 
 import android.view.View
-import fr.guddy.elegantandroid.ui.Bindable
-import fr.guddy.elegantandroid.ui.ViewState
+import fr.guddy.eoandroidui.Bindable
+import fr.guddy.eoandroidui.ViewState
 import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
 
 sealed class RepoViewState :
