@@ -6,8 +6,9 @@ import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.domain.SimpleRepo
 import fr.guddy.eoandroidpersistence.Persistable
 
-class DbRepo(origin: Repo) : Repo.Wrap(origin),
-    Persistable {
+class DbRepo(
+    origin: Repo
+) : Repo.Wrap(origin), Persistable {
     constructor(cursor: Cursor) : this(
         SimpleRepo(
             id = cursor.getLong(cursor.getColumnIndexOrThrow(ID)),

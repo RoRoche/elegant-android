@@ -1,8 +1,8 @@
 package fr.guddy.eoandroidpersistence.queries
 
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.eoandroidpersistence.Table
 import fr.guddy.eoandroidpersistence.Persistable
+import fr.guddy.eoandroidpersistence.Table
 
 class BulkInsert(
     private val db: SQLiteDatabase,

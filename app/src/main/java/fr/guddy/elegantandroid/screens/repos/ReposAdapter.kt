@@ -3,9 +3,9 @@ package fr.guddy.elegantandroid.screens.repos
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import fr.guddy.eoandroidui.Bindable
-import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.databinding.RepoBinding
+import fr.guddy.elegantandroid.domain.Repo
+import fr.guddy.eoandroidui.Bindable
 
 class ReposAdapter(
     private val layoutInflater: LayoutInflater,

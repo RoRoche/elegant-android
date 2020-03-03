@@ -3,10 +3,10 @@ package fr.guddy.elegantandroid.workmanager
 import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import fr.guddy.elegantandroid.persistence.RepoTable
-import fr.guddy.elegantandroid.rest.RestReposByUser
 import fr.guddy.elegantandroid.persistence.DbRepos
 import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
+import fr.guddy.elegantandroid.persistence.RepoTable
+import fr.guddy.elegantandroid.rest.RestReposByUser
 import okhttp3.OkHttpClient
 
 class GetReposRestWork(

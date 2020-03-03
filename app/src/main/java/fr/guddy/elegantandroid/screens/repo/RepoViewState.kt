@@ -1,12 +1,11 @@
 package fr.guddy.elegantandroid.screens.repo
 
 import android.view.View
+import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
 import fr.guddy.eoandroidui.Bindable
 import fr.guddy.eoandroidui.ViewState
-import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
 
-sealed class RepoViewState :
-    ViewState<ActivityRepoBinding> {
+sealed class RepoViewState : ViewState<ActivityRepoBinding> {
     object IsLoading : RepoViewState() {
         override fun bind(binding: ActivityRepoBinding) {
             binding.loading.visibility = View.VISIBLE

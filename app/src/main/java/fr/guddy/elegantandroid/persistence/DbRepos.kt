@@ -2,11 +2,7 @@ package fr.guddy.elegantandroid.persistence
 
 import android.database.sqlite.SQLiteDatabase
 import fr.guddy.elegantandroid.domain.Repo
-import fr.guddy.eoandroidpersistence.queries.BulkInsert
-import fr.guddy.eoandroidpersistence.queries.CountAll
-import fr.guddy.eoandroidpersistence.queries.Delete
-import fr.guddy.eoandroidpersistence.queries.Insert
-import fr.guddy.eoandroidpersistence.queries.Where
+import fr.guddy.eoandroidpersistence.queries.*
 
 class DbRepos(
     private val db: SQLiteDatabase

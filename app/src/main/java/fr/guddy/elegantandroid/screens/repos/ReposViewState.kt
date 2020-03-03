@@ -10,8 +10,7 @@ import fr.guddy.elegantandroid.ui.RenderableRepos
 import fr.guddy.eoandroidui.Renderable
 import fr.guddy.eoandroidui.ViewState
 
-sealed class ReposViewState :
-    ViewState<ReposBinding> {
+sealed class ReposViewState : ViewState<ReposBinding> {
     object IsLoading : ReposViewState() {
         override fun bind(binding: ReposBinding) {
             binding.loading.visibility = View.VISIBLE

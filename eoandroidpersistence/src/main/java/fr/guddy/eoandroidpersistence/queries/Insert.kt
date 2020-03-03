@@ -2,8 +2,8 @@ package fr.guddy.eoandroidpersistence.queries
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.eoandroidpersistence.Table
 import fr.guddy.eoandroidpersistence.Persistable
+import fr.guddy.eoandroidpersistence.Table
 
 class Insert(
     private val db: SQLiteDatabase,
