@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.persistence
 
 import android.database.sqlite.SQLiteDatabase
 import fr.guddy.eoandroidpersistence.Table

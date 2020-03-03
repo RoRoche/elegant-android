@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.domain
 
 interface Repo {
     fun id(): Long

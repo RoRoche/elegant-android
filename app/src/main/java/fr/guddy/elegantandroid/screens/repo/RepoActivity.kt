@@ -3,11 +3,16 @@ package fr.guddy.elegantandroid.screens.repo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
-import fr.guddy.elegantandroid.*
 import fr.guddy.eoandroidconcurrency.Callback
 import fr.guddy.eoandroidconcurrency.Job
 import fr.guddy.eoandroidconcurrency.SimpleAsyncJob
 import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
+import fr.guddy.elegantandroid.domain.Repo
+import fr.guddy.elegantandroid.persistence.DbRepoById
+import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
+import fr.guddy.elegantandroid.persistence.RepoTable
+import fr.guddy.elegantandroid.persistence.SelectRepoById
+import fr.guddy.elegantandroid.ui.DetailRepo
 import fr.guddy.eoandroidui.MutableViewState
 import fr.guddy.eoandroidui.ViewState
 import java.lang.ref.WeakReference

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.guddy.eoandroidui.Bindable
-import fr.guddy.elegantandroid.Repo
+import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.databinding.RepoBinding
 
 class ReposAdapter(

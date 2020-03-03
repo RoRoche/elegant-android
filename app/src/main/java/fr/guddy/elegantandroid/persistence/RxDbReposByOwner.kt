@@ -1,27 +1,32 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.persistence
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.eoandroidpersistence.queries.DbQuery
 import fr.guddy.eoandroidpersistence.queries.rx.RxDbQuery
 import io.reactivex.Single
 
-class RxDbRepoById(private val origin: DbQuery<Cursor>) :
-    RxDbQuery<Repo> {
+class RxDbReposByOwner(private val origin: DbQuery<Cursor>) :
+    RxDbQuery<List<Repo>> {
     constructor(
         db: SQLiteDatabase,
-        id: Long
+        owner: String
     ) : this(
-        SelectRepoById(
+        SelectReposByOwner(
             db = db,
-            id = id
+            owner = owner
         )
     )
 
-    override fun single(): Single<Repo> {
+    override fun single(): Single<List<Repo>> {
         return Single.create { emitter ->
             try {
-                emitter.onSuccess(DbRepoById(this.origin))
+                emitter.onSuccess(
+                    DbReposByOwner(
+                        this.origin
+                    )
+                )
             } catch (exception: Exception) {
                 emitter.onError(exception)
             }

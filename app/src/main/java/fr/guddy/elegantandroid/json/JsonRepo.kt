@@ -1,8 +1,10 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.json
 
+import fr.guddy.elegantandroid.domain.Repo
 import org.json.JSONObject
 
-class JsonRepo(private val jsonObject: JSONObject) : Repo {
+class JsonRepo(private val jsonObject: JSONObject) :
+    Repo {
 
     override fun id(): Long = jsonObject.getLong("id")
 

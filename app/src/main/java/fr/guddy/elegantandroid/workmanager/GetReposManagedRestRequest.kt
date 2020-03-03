@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.workmanager
 
 import androidx.work.ListenableWorker
 import androidx.work.WorkManager

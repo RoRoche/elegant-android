@@ -1,5 +1,7 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.rest
 
+import fr.guddy.elegantandroid.domain.Repo
+import fr.guddy.elegantandroid.json.JsonRepos
 import fr.guddy.eorest.SuccessfulRestRequest
 import fr.guddy.eorest.WithBodyRestRequest
 import okhttp3.OkHttpClient

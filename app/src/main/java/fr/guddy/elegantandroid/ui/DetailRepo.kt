@@ -1,5 +1,6 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.ui
 
+import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
 import fr.guddy.eoandroidui.Bindable
 

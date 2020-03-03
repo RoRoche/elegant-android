@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.rest
 
 import fr.guddy.eorest.RestRequest
 import okhttp3.Call

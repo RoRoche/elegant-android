@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid
+package fr.guddy.elegantandroid.ui
 
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
