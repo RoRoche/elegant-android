@@ -1,7 +1,6 @@
-package fr.guddy.elegantandroid.workmanager
+package fr.guddy.eoandroidworkmanager
 
 import androidx.work.*
-import fr.guddy.elegantandroid.workmanager.ManagedRestRequest
 
 class OneTimeRestWorkRequest(
     private val workManager: WorkManager,

@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.workmanager
+package fr.guddy.eoandroidworkmanager
 
 import androidx.lifecycle.LiveData
 import androidx.work.Operation
