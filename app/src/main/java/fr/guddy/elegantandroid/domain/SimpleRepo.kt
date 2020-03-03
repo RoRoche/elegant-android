@@ -1,7 +1,5 @@
 package fr.guddy.elegantandroid.domain
 
-import fr.guddy.elegantandroid.domain.Repo
-
 class SimpleRepo(
     private val id: Long,
     private val name: String,
