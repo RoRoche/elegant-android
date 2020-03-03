@@ -1,14 +1,15 @@
 package fr.guddy.elegantandroid
 
-import fr.guddy.elegantandroid.rest.RestRequest
+import fr.guddy.eorest.RestRequest
 import okhttp3.Call
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 
-class GetReposRestRequest(private val call: Call) :
-    RestRequest {
+class GetReposRestRequest(
+    private val call: Call
+) : RestRequest {
 
     constructor(client: OkHttpClient, baseUrl: String, user: String) : this(
         client,

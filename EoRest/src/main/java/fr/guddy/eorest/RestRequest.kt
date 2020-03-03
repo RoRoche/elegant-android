@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.rest
+package fr.guddy.eorest
 
 import okhttp3.Response
 

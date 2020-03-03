@@ -1,6 +1,6 @@
 package fr.guddy.elegantandroid
 
-import fr.guddy.elegantandroid.rest.RestRequest
+import fr.guddy.eorest.RestRequest
 import okhttp3.Response
 import org.json.JSONArray
 

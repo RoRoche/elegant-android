@@ -1,7 +1,6 @@
-package fr.guddy.elegantandroid.rest
+package fr.guddy.eorest
 
-import fr.guddy.elegantandroid.rest.exceptions.NoBodyRestResponseException
-import fr.guddy.elegantandroid.rest.RestRequest
+import fr.guddy.eorest.exceptions.NoBodyRestResponseException
 import okhttp3.Response
 
 class WithBodyRestRequest(origin: RestRequest) : RestRequest.Wrap(origin) {

@@ -1,7 +1,6 @@
-package fr.guddy.elegantandroid.rest
+package fr.guddy.eorest
 
-import fr.guddy.elegantandroid.rest.RestRequest
-import fr.guddy.elegantandroid.rest.exceptions.RestRequestFailureException
+import fr.guddy.eorest.exceptions.RestRequestFailureException
 import okhttp3.Response
 
 class SuccessfulRestRequest(origin: RestRequest) : RestRequest.Wrap(origin) {

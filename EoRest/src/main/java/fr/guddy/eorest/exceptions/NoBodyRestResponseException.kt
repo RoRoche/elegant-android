@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.rest.exceptions
+package fr.guddy.eorest.exceptions
 
 import java.lang.RuntimeException
 
