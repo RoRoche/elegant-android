@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.persistence
+package fr.guddy.eoandroidpersistence
 
 import android.content.ContentValues
 

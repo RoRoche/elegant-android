@@ -2,7 +2,7 @@ package fr.guddy.elegantandroid
 
 import android.content.ContentValues
 import android.database.Cursor
-import fr.guddy.elegantandroid.persistence.Persistable
+import fr.guddy.eoandroidpersistence.Persistable
 
 class DbRepo(origin: Repo) : Repo.Wrap(origin),
     Persistable {

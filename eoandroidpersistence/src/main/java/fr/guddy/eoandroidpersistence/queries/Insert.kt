@@ -1,9 +1,9 @@
-package fr.guddy.elegantandroid.persistence.queries
+package fr.guddy.eoandroidpersistence.queries
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.elegantandroid.persistence.Table
-import fr.guddy.elegantandroid.persistence.Persistable
+import fr.guddy.eoandroidpersistence.Table
+import fr.guddy.eoandroidpersistence.Persistable
 
 class Insert(
     private val db: SQLiteDatabase,

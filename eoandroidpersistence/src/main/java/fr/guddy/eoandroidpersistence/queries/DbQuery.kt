@@ -1,4 +1,4 @@
-package fr.guddy.elegantandroid.persistence.queries
+package fr.guddy.eoandroidpersistence.queries
 
 interface DbQuery<T> {
     fun result(): T

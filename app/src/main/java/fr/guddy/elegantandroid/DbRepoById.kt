@@ -2,7 +2,7 @@ package fr.guddy.elegantandroid
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.elegantandroid.persistence.queries.DbQuery
+import fr.guddy.eoandroidpersistence.queries.DbQuery
 
 class DbRepoById(private val repo: Repo) : Repo by repo {
 

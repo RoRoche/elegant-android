@@ -1,6 +1,6 @@
-package fr.guddy.elegantandroid.persistence.queries.rx
+package fr.guddy.eoandroidpersistence.queries.rx
 
-import fr.guddy.elegantandroid.persistence.queries.DbQuery
+import fr.guddy.eoandroidpersistence.queries.DbQuery
 import io.reactivex.Single
 
 interface RxDbQuery<T> {

@@ -1,7 +1,7 @@
 package fr.guddy.elegantandroid
 
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.elegantandroid.persistence.Table
+import fr.guddy.eoandroidpersistence.Table
 
 class RepoTable : Table {
     override fun name() = "REPO"

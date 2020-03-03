@@ -2,10 +2,10 @@ package fr.guddy.elegantandroid
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.elegantandroid.persistence.Table
-import fr.guddy.elegantandroid.persistence.queries.DbQuery
-import fr.guddy.elegantandroid.persistence.queries.Select
-import fr.guddy.elegantandroid.persistence.queries.Where
+import fr.guddy.eoandroidpersistence.Table
+import fr.guddy.eoandroidpersistence.queries.DbQuery
+import fr.guddy.eoandroidpersistence.queries.Select
+import fr.guddy.eoandroidpersistence.queries.Where
 
 class SelectRepoById(
     origin: DbQuery<Cursor>

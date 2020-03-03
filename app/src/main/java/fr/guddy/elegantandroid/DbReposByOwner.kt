@@ -2,7 +2,7 @@ package fr.guddy.elegantandroid
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.elegantandroid.persistence.queries.DbQuery
+import fr.guddy.eoandroidpersistence.queries.DbQuery
 
 class DbReposByOwner(private val repos: List<Repo>) : List<Repo> by repos {
     constructor(cursor: Cursor) : this(
