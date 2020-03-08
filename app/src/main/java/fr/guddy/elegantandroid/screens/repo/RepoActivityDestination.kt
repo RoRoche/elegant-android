@@ -5,24 +5,24 @@ import android.content.Intent
 import fr.guddy.eoandroidui.Destination
 
 class RepoActivityDestination(
-    private val origin: Activity,
-    private val intent: Intent
-) : Destination {
-
+    delegate: Destination
+) : Destination.Wrap(
+    delegate = delegate
+) {
     constructor(
         origin: Activity,
         repoId: Long
     ) : this(
-        origin,
-        Intent(origin.applicationContext, RepoActivity::class.java).apply {
-            putExtras(
-                RepoActivityExtra(repoId = repoId).toBundle()
-            )
-        }
+        Destination.ToActivity(
+            origin = origin,
+            intent = Intent(
+                origin.applicationContext,
+                RepoActivity::class.java
+            ).apply {
+                putExtras(
+                    RepoActivityExtra(repoId = repoId).toBundle()
+                )
+            }
+        )
     )
-
-    override fun go() {
-        origin.startActivity(intent)
-    }
-
 }
