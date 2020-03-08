@@ -32,6 +32,7 @@ before_install:
   - yes | sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
 before_script:
   - android list sdk --extended --no-ui --all
+  - android list targets
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
