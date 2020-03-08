@@ -6,7 +6,7 @@ buildscript {
         dokka_version = '0.9.17'
     }
     repositories {
-        google()
+//        google()
         jcenter()
         maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
         mavenCentral()
