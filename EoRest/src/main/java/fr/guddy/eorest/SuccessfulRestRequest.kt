@@ -5,6 +5,7 @@ import okhttp3.Response
 
 /**
  * Decorator class to validate that the REST request is successful.
+ *
  * @param origin The original REST request to perform.
  */
 class SuccessfulRestRequest(

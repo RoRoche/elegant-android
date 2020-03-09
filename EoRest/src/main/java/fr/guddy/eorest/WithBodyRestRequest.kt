@@ -5,6 +5,7 @@ import okhttp3.Response
 
 /**
  * Decorator class to check that the response contains a body.
+ *
  * @param origin The REST request to perform.
  */
 class WithBodyRestRequest(
