@@ -33,6 +33,14 @@ android {
         outputFormat = 'html'
         outputDirectory = "$buildDir/javadoc"
     }
+
+    testOptions {
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
