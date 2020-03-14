@@ -4,10 +4,20 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import fr.guddy.eoandroidpersistence.Table
 
+/**
+ * [DbQuery] to count all rows in a table.
+ *
+ * @property origin The delegate query.
+ */
 class CountAll(
     private val origin: DbQuery<Cursor>
 ) : DbQuery<Int> {
-
+    /**
+     * Secondary constructor to build a delegate [Select] query.
+     * @param db The database where to count rows.
+     * @param from The table where to count rows.
+     * @param where An optional [Where] clause.
+     */
     constructor(
         db: SQLiteDatabase,
         from: Table,
@@ -21,6 +31,9 @@ class CountAll(
         )
     )
 
+    /**
+     * @return The number of rows in the table, according to optional [Where] clause.
+     */
     override fun result(): Int {
         return origin.result().let {
             it.moveToFirst()
@@ -31,6 +44,9 @@ class CountAll(
     }
 
     companion object Constant {
+        /**
+         * The "COUNT(*)" SQL keyword.
+         */
         const val COUNT_ALL = "COUNT(*)"
     }
 }
