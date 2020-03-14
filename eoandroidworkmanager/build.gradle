@@ -44,7 +44,7 @@ android {
     }
 }
 
-def work_version = "2.3.2"
+def work_version = "2.3.3"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
