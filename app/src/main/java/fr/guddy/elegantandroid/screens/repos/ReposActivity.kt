@@ -14,7 +14,7 @@ import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.persistence.DbReposByOwner
 import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
 import fr.guddy.elegantandroid.persistence.RepoTable
-import fr.guddy.elegantandroid.persistence.SelectReposByOwner
+import fr.guddy.elegantandroid.persistence.queries.SelectReposByOwner
 import fr.guddy.elegantandroid.screens.repo.RepoActivityDestination
 import fr.guddy.elegantandroid.workmanager.GetReposManagedRestRequest
 import fr.guddy.eoandroidconcurrency.Callback
@@ -85,8 +85,9 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
             onError = Callback.OnMainThread(
                 OnReposLoadingError(this)
             )
-        )
-        job?.run()
+        ).apply {
+            run()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

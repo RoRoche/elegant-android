@@ -1,5 +1,5 @@
 include ':app'
-rootProject.name='ElegantAndroid'
+rootProject.name = 'ElegantAndroid'
 include ':eoandroidpersistence'
 include ':eoandroidconcurrency'
 include ':EoRest'

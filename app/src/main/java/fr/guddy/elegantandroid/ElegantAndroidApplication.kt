@@ -1,6 +1,7 @@
 package fr.guddy.elegantandroid
 
 import android.app.Application
+
 //import leakcanary.AppWatcher
 
 class ElegantAndroidApplication : Application() {

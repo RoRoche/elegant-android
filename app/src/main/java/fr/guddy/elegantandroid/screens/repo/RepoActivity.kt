@@ -8,7 +8,7 @@ import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.persistence.DbRepoById
 import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
 import fr.guddy.elegantandroid.persistence.RepoTable
-import fr.guddy.elegantandroid.persistence.SelectRepoById
+import fr.guddy.elegantandroid.persistence.queries.SelectRepoById
 import fr.guddy.elegantandroid.ui.DetailRepo
 import fr.guddy.eoandroidconcurrency.Callback
 import fr.guddy.eoandroidconcurrency.Job
@@ -83,8 +83,9 @@ class RepoActivity : AppCompatActivity() {
             onError = Callback.OnMainThread(
                 OnRepoLoadingError(this)
             )
-        )
-        job?.run()
+        ).apply {
+            run()
+        }
     }
 
     override fun onDestroy() {

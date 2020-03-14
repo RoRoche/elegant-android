@@ -9,5 +9,5 @@ interface Persistable {
     /**
      * @return Object as [ContentValues] to be stored in SQLite database.
      */
-    fun toContentValues() : ContentValues
+    fun toContentValues(): ContentValues
 }

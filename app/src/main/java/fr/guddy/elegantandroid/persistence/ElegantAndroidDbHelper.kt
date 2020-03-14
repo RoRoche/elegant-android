@@ -8,7 +8,7 @@ import fr.guddy.eoandroidpersistence.Table
 class ElegantAndroidDbHelper(
     context: Context,
     private val tables: List<Table>
-): SQLiteOpenHelper(
+) : SQLiteOpenHelper(
     context,
     NAME,
     null,

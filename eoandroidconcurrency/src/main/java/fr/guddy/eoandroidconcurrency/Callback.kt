@@ -5,15 +5,15 @@ import android.os.Looper
 
 /**
  * Interface to describe the contract of being "called back".
- * 
+ *
  * @param T The type of result to be passed to the callback.
  */
 @FunctionalInterface
-interface Callback<T>: Disposable {
+interface Callback<T> : Disposable {
 
     /**
      * Method to implement in order to be "called back".
-     * 
+     *
      * @param data The result to pass to the callback.
      */
     fun accept(data: T)
@@ -39,7 +39,7 @@ interface Callback<T>: Disposable {
         constructor(
             delegate: Callback<T>,
             looper: Looper
-        ): this(
+        ) : this(
             delegate,
             Handler(looper)
         )
@@ -51,7 +51,7 @@ interface Callback<T>: Disposable {
          */
         constructor(
             delegate: Callback<T>
-        ): this(
+        ) : this(
             delegate,
             Looper.getMainLooper()
         )
@@ -71,5 +71,5 @@ interface Callback<T>: Disposable {
     /**
      * Convenient class that strongly type the callback for error management.
      */
-    interface OnError: Callback<Throwable>
+    interface OnError : Callback<Throwable>
 }

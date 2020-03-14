@@ -6,7 +6,7 @@ import fr.guddy.eoandroidui.Bindable
 
 class ListItemRepo(
     origin: Repo
-): Repo.Wrap(origin), Bindable<RepoBinding> {
+) : Repo.Wrap(origin), Bindable<RepoBinding> {
     override fun bind(binding: RepoBinding) {
         binding.name.text = name()
         binding.description.text = description()

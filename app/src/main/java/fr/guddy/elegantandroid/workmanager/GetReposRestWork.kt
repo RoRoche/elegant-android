@@ -18,11 +18,12 @@ class GetReposRestWork(
             val data = GetReposRestWorkData(
                 inputData
             )
-            val dbHelper =
-                ElegantAndroidDbHelper(
-                    applicationContext,
-                    listOf(RepoTable())
+            val dbHelper = ElegantAndroidDbHelper(
+                applicationContext,
+                listOf(
+                    RepoTable()
                 )
+            )
             val repos = RestReposByUser(
                 client = OkHttpClient(),
                 baseUrl = data.baseUrl,
