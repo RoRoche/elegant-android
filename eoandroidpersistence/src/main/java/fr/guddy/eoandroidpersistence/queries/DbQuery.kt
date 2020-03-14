@@ -13,6 +13,10 @@ interface DbQuery<T> {
 
     /**
      * Convenient abstract class to wrap a query and use it as a delegate.
+     *
+     * @property origin The delegate [DbQuery].
      */
-    abstract class Wrap<T>(private val origin: DbQuery<T>) : DbQuery<T> by origin
+    abstract class Wrap<T>(
+        private val origin: DbQuery<T>
+    ) : DbQuery<T> by origin
 }

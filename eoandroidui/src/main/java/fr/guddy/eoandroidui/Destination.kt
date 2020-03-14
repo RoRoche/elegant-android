@@ -15,6 +15,8 @@ interface Destination {
 
     /**
      * Convenient abstract class to wrap a [Destination] and use it as a delegate.
+     *
+     * @property delegate The delegate [Destination].
      */
     abstract class Wrap(
         private val delegate: Destination
