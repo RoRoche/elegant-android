@@ -1,7 +1,9 @@
 package fr.guddy.eoandroidconcurrency
 
+import android.app.Activity
 import android.os.Handler
 import android.os.Looper
+import java.lang.ref.WeakReference
 
 /**
  * Interface to describe the contract of being "called back".
@@ -19,16 +21,25 @@ interface Callback<T> : Disposable {
     fun accept(data: T)
 
     /**
+     * Convenient class to wrap a callback.
+     *
+     * @param delegate The callback to be performed.
+     */
+    abstract class Wrap<T>(
+        protected val delegate: Callback<T>
+    ) : Callback<T> by delegate
+
+    /**
      * Convenient class to perform the callback on the main thread.
      *
      * @param delegate The callback to be performed on the main thread.
-     * @param handler The [Handler] to perform the callback on the main thread.
+     * @property handler The [Handler] to perform the callback on the main thread.
      * @param T The type of result to be passed to the callback.
      */
     class OnMainThread<T>(
-        private val delegate: Callback<T>,
+        delegate: Callback<T>,
         private val handler: Handler
-    ) : Callback<T> by delegate {
+    ) : Callback.Wrap<T>(delegate) {
 
         /**
          * Secondary constructor to ease the call of the primary one.
@@ -72,4 +83,33 @@ interface Callback<T> : Disposable {
      * Convenient class that strongly type the callback for error management.
      */
     interface OnError : Callback<Throwable>
+
+    /**
+     * Convenient class to perform callback into an [Activity].
+     *
+     * @property activity The [Activity] in which to perform the callback,
+     * wrapped into [WeakReference].
+     * @param T The [Activity] generic parameter.
+     * @param R The result to be passed to the callback.
+     */
+    abstract class InActivity<T : Activity, R>(
+        val activity: WeakReference<T>
+    ) : Callback<R> {
+
+        /**
+         * Secondary constructor to build a [WeakReference] of the [Activity].
+         *
+         * @param activity The [Activity] in which to perform the callback.
+         */
+        constructor(activity: T) : this(
+            WeakReference(activity)
+        )
+
+        /**
+         * Clear the [WeakReference].
+         */
+        override fun dispose() {
+            activity.clear()
+        }
+    }
 }

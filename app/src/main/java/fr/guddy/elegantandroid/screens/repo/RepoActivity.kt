@@ -26,9 +26,8 @@ class RepoActivity : AppCompatActivity() {
     private var job: Job? = null
 
     private class OnRepoLoaded(
-        private val activity: WeakReference<RepoActivity>
-    ) : Callback<Repo> {
-        constructor(activity: RepoActivity) : this(WeakReference(activity))
+        activity: RepoActivity
+    ) : Callback.InActivity<RepoActivity, Repo>(activity) {
 
         override fun accept(data: Repo) {
             activity.get()?.repoViewState?.value = RepoViewState.WithContent(

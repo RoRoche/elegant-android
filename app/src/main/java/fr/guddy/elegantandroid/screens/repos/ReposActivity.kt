@@ -33,9 +33,8 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
     private lateinit var reposViewState: MutableLiveData<ViewState<ReposBinding>>
 
     private class OnReposLoaded(
-        private val activity: WeakReference<ReposActivity>
-    ) : Callback<List<Repo>> {
-        constructor(activity: ReposActivity) : this(WeakReference(activity))
+        activity: ReposActivity
+    ) : Callback.InActivity<ReposActivity, List<Repo>>(activity) {
 
         override fun accept(data: List<Repo>) {
             if (data.isNullOrEmpty()) {
@@ -48,10 +47,6 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
                         activity.get()!!
                     )
             }
-        }
-
-        override fun dispose() {
-            activity.clear()
         }
     }
 
