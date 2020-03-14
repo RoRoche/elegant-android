@@ -15,7 +15,6 @@ import fr.guddy.eoandroidconcurrency.Job
 import fr.guddy.eoandroidconcurrency.SimpleAsyncJob
 import fr.guddy.eoandroidui.MutableViewState
 import fr.guddy.eoandroidui.ViewState
-import java.lang.ref.WeakReference
 import java.util.concurrent.Callable
 
 class RepoActivity : AppCompatActivity() {
@@ -41,16 +40,11 @@ class RepoActivity : AppCompatActivity() {
     }
 
     private class OnRepoLoadingError(
-        private val activity: WeakReference<RepoActivity>
-    ) : Callback.OnError {
-        constructor(activity: RepoActivity) : this(WeakReference(activity))
+        activity: RepoActivity
+    ) : Callback.InActivity<RepoActivity, Throwable>(activity), Callback.OnError {
 
         override fun accept(data: Throwable) {
             activity.get()?.repoViewState?.value = RepoViewState.IsError
-        }
-
-        override fun dispose() {
-            activity.clear()
         }
     }
 

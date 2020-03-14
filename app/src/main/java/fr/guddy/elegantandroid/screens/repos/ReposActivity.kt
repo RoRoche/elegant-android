@@ -22,7 +22,6 @@ import fr.guddy.eoandroidconcurrency.Job
 import fr.guddy.eoandroidconcurrency.SimpleAsyncJob
 import fr.guddy.eoandroidui.MutableViewState
 import fr.guddy.eoandroidui.ViewState
-import java.lang.ref.WeakReference
 import java.util.concurrent.Callable
 
 class ReposActivity : AppCompatActivity(), OnRepoClickListener {
@@ -51,10 +50,8 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
     }
 
     private class OnReposLoadingError(
-        private val activity: WeakReference<ReposActivity>
-    ) : Callback.OnError {
-        constructor(activity: ReposActivity) : this(WeakReference(activity))
-
+        activity: ReposActivity
+    ) : Callback.InActivity<ReposActivity, Throwable>(activity), Callback.OnError {
         override fun accept(data: Throwable) {
             activity.get()?.reposViewState?.value = ReposViewState.IsError
         }
