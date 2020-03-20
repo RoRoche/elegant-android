@@ -80,7 +80,7 @@ interface Callback<T> : Disposable {
     }
 
     /**
-     * Convenient class that strongly type the callback for error management.
+     * Convenient class that strongly types the callback for error management.
      */
     interface OnError : Callback<Throwable>
 
