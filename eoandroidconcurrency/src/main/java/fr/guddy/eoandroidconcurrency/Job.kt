@@ -25,7 +25,7 @@ interface Job : Disposable {
 
         /**
          * The method to be called to run the job.
-         * It basically call the start method of the [Thread].
+         * It basically calls the start method of the [Thread].
          */
         override fun run() {
             thread.start()
