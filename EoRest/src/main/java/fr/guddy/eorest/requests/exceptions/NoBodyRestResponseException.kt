@@ -1,4 +1,4 @@
-package fr.guddy.eorest.exceptions
+package fr.guddy.eorest.requests.exceptions
 
 import okhttp3.Response
 

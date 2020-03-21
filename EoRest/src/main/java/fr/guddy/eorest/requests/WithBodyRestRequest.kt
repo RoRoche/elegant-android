@@ -1,6 +1,6 @@
-package fr.guddy.eorest
+package fr.guddy.eorest.requests
 
-import fr.guddy.eorest.exceptions.NoBodyRestResponseException
+import fr.guddy.eorest.requests.exceptions.NoBodyRestResponseException
 import okhttp3.Response
 
 /**
