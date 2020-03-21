@@ -41,7 +41,7 @@ class DbRepo(
         put(OWNER, owner())
     }
 
-    companion object Columns {
+    private companion object Columns {
         private const val ID = "id"
         private const val NAME = "name"
         private const val DESCRIPTION = "description"
