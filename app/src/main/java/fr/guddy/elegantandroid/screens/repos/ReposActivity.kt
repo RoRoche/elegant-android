@@ -51,7 +51,7 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
 
     private class OnReposLoadingError(
         activity: ReposActivity
-    ) : Callback.InActivity<ReposActivity, Throwable>(activity), Callback.OnError {
+    ) : Callback.InActivity<ReposActivity, Throwable>(activity) {
         override fun accept(data: Throwable) {
             activity.get()?.reposViewState?.value = ReposViewState.IsError
         }

@@ -8,7 +8,6 @@ import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.persistence.DbRepoById
 import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
 import fr.guddy.elegantandroid.persistence.RepoTable
-import fr.guddy.elegantandroid.persistence.queries.SelectRepoById
 import fr.guddy.elegantandroid.ui.DetailRepo
 import fr.guddy.eoandroidconcurrency.Callback
 import fr.guddy.eoandroidconcurrency.Job
@@ -41,7 +40,7 @@ class RepoActivity : AppCompatActivity() {
 
     private class OnRepoLoadingError(
         activity: RepoActivity
-    ) : Callback.InActivity<RepoActivity, Throwable>(activity), Callback.OnError {
+    ) : Callback.InActivity<RepoActivity, Throwable>(activity) {
 
         override fun accept(data: Throwable) {
             activity.get()?.repoViewState?.value = RepoViewState.IsError
@@ -64,10 +63,8 @@ class RepoActivity : AppCompatActivity() {
         job = SimpleAsyncJob<Repo>(
             callable = Callable {
                 DbRepoById(
-                    SelectRepoById(
-                        db = dbHelper.readableDatabase,
-                        id = RepoActivityExtra(intent.extras!!).repoId
-                    )
+                    db = dbHelper.readableDatabase,
+                    id = RepoActivityExtra(intent.extras!!).repoId
                 )
             },
             onSuccess = Callback.OnMainThread(

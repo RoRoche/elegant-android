@@ -80,11 +80,6 @@ interface Callback<T> : Disposable {
     }
 
     /**
-     * Convenient class that strongly types the callback for error management.
-     */
-    interface OnError : Callback<Throwable>
-
-    /**
      * Convenient class to perform callback into an [Activity].
      *
      * @property activity The [Activity] in which to perform the callback,
