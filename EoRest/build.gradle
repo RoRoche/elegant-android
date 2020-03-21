@@ -7,6 +7,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.2.2'
+    testImplementation 'junit:junit:4.12'
+    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation 'org.amshove.kluent:kluent:1.4'
 }
 
 sourceCompatibility = "7"

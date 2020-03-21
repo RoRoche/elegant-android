@@ -15,6 +15,9 @@ class SimpleAsyncJobTest {
     private lateinit var onSuccess: Callback.Fake<Boolean>
     private lateinit var onError: Callback.Fake<Throwable>
 
+    /**
+     * Called before each test.
+     */
     @Before
     fun before() {
         countDownLatch = CountDownLatch(1)
@@ -22,6 +25,9 @@ class SimpleAsyncJobTest {
         onError = Callback.Fake(countDownLatch = countDownLatch)
     }
 
+    /**
+     * Test onSuccess [Callback] is called.
+     */
     @Test
     fun `test on success callback is called`() {
         SimpleAsyncJob<Boolean>(
@@ -35,6 +41,9 @@ class SimpleAsyncJobTest {
         onSuccess.data!!.shouldBe(true)
     }
 
+    /**
+     * Test onError [Callback] is called.
+     */
     @Test
     fun `test on error callback is called`() {
         SimpleAsyncJob<Boolean>(

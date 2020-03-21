@@ -9,4 +9,4 @@ import okhttp3.Response
  */
 class RestRequestFailureException(
     val response: Response
-) : RuntimeException("REST request failed with response $response")
+) : RuntimeException("REST request failed")

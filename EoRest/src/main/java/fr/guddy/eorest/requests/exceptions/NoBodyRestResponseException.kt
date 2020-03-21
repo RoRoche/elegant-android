@@ -9,4 +9,4 @@ import okhttp3.Response
  */
 class NoBodyRestResponseException(
     val response: Response
-) : RuntimeException("REST request does not have body: $response")
+) : RuntimeException("REST request does not have body")
