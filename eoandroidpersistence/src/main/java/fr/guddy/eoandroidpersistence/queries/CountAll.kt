@@ -14,6 +14,7 @@ class CountAll(
 ) : DbQuery<Int> {
     /**
      * Secondary constructor to build a delegate [Select] query.
+     *
      * @param db The database where to count rows.
      * @param from The table where to count rows.
      * @param where An optional [Where] clause.
@@ -44,9 +45,6 @@ class CountAll(
     }
 
     private companion object Constant {
-        /**
-         * The "COUNT(*)" SQL keyword.
-         */
         private const val COUNT_ALL = "COUNT(*)"
     }
 }
