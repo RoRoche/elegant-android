@@ -5,7 +5,14 @@ import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
 import fr.guddy.eoandroidui.Bindable
 import fr.guddy.eoandroidui.ViewState
 
+/**
+ * Class representing a [ViewState] that binds data into [ActivityRepoBinding].
+ */
 sealed class RepoViewState : ViewState<ActivityRepoBinding> {
+
+    /**
+     * Single object to bind a loading state.
+     */
     object IsLoading : RepoViewState() {
         override fun bind(binding: ActivityRepoBinding) {
             binding.loading.visibility = View.VISIBLE
@@ -15,6 +22,11 @@ sealed class RepoViewState : ViewState<ActivityRepoBinding> {
         }
     }
 
+    /**
+     * Class to bind a single repo into [ActivityRepoBinding].
+     *
+     * @property repo The repo to be bound.
+     */
     class WithContent(
         private val repo: Bindable<ActivityRepoBinding>
     ) : RepoViewState() {
@@ -27,6 +39,9 @@ sealed class RepoViewState : ViewState<ActivityRepoBinding> {
         }
     }
 
+    /**
+     * Single object to bind an error state.
+     */
     object IsError : RepoViewState() {
         override fun bind(binding: ActivityRepoBinding) {
             binding.loading.visibility = View.GONE

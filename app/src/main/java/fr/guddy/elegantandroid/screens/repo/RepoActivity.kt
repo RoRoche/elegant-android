@@ -16,6 +16,9 @@ import fr.guddy.eoandroidui.MutableViewState
 import fr.guddy.eoandroidui.ViewState
 import java.util.concurrent.Callable
 
+/**
+ * [AppCompatActivity] to display a single [Repo].
+ */
 class RepoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRepoBinding

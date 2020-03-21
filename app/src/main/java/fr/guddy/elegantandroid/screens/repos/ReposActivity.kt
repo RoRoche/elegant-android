@@ -24,6 +24,9 @@ import fr.guddy.eoandroidui.MutableViewState
 import fr.guddy.eoandroidui.ViewState
 import java.util.concurrent.Callable
 
+/**
+ * [AppCompatActivity] to display a list of [Repo].
+ */
 class ReposActivity : AppCompatActivity(), OnRepoClickListener {
 
     private var job: Job? = null

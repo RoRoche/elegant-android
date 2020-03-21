@@ -7,6 +7,13 @@ import fr.guddy.elegantandroid.databinding.RepoBinding
 import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.eoandroidui.Bindable
 
+/**
+ * [RecyclerView.Adapter] to display a list of repos into a [RecyclerView].
+ *
+ * @property layoutInflater The [LayoutInflater] to be used.
+ * @property repos The list of repos to display.
+ * @property listener The [OnRepoClickListener] to be called when a repo is clicked.
+ */
 class ReposAdapter(
     private val layoutInflater: LayoutInflater,
     private val repos: List<Bindable<RepoBinding>>,
