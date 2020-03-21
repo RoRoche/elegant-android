@@ -10,10 +10,23 @@ import fr.guddy.elegantandroid.rest.RestReposByUser
 import fr.guddy.eoandroidpersistence.queries.BulkInsert
 import okhttp3.OkHttpClient
 
-class GetReposRestWork(
+/**
+ * Class representing a [Worker] to get repos for user from a REST API.
+ *
+ * @param appContext The [Context] to use.
+ * @param workerParams The [WorkerParameters] passed to the work.
+ */
+class GetReposForUserRestWork(
     appContext: Context,
     workerParams: WorkerParameters
 ) : Worker(appContext, workerParams) {
+
+    /**
+     * The default method to implement to perform the work.
+     * It gets data from a REST API and stores it into SQLite database.
+     *
+     * @return The [Result] of the performed work.
+     */
     override fun doWork(): Result {
         val dbHelper = ElegantAndroidDbHelper(
             applicationContext,
@@ -22,7 +35,7 @@ class GetReposRestWork(
             )
         )
         try {
-            val data = GetReposRestWorkData(
+            val data = GetReposForUserRestWorkData(
                 inputData
             )
             val repos = RestReposByUser(

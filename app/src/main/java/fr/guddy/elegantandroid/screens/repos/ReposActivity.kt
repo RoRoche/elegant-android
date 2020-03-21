@@ -16,7 +16,7 @@ import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
 import fr.guddy.elegantandroid.persistence.RepoTable
 import fr.guddy.elegantandroid.persistence.queries.SelectReposByOwner
 import fr.guddy.elegantandroid.screens.repo.RepoActivityDestination
-import fr.guddy.elegantandroid.workmanager.GetReposManagedRestRequest
+import fr.guddy.elegantandroid.workmanager.GetReposForUserManagedRestRequest
 import fr.guddy.eoandroidconcurrency.Callback
 import fr.guddy.eoandroidconcurrency.Job
 import fr.guddy.eoandroidconcurrency.SimpleAsyncJob
@@ -103,7 +103,7 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
         )
         reposViewState.value = ReposViewState.IsLoading
 
-        GetReposManagedRestRequest(
+        GetReposForUserManagedRestRequest(
             workManager = WorkManager.getInstance(applicationContext),
             baseUrl = "https://api.github.com/",
             user = "RoRoche"
