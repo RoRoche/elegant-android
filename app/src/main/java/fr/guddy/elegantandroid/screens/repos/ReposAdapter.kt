@@ -19,6 +19,12 @@ class ReposAdapter(
     private val repos: List<Bindable<RepoBinding>>,
     private val listener: OnRepoClickListener
 ) : RecyclerView.Adapter<ReposAdapter.RepoViewHolder>() {
+
+    /**
+     * [RecyclerView.ViewHolder] to reuse cells in [RecyclerView].
+     *
+     * @property binding The [RepoBinding] to display.
+     */
     inner class RepoViewHolder(
         val binding: RepoBinding
     ) : RecyclerView.ViewHolder(binding.root) {
