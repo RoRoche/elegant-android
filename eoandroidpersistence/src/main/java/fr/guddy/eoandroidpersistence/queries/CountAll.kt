@@ -43,10 +43,10 @@ class CountAll(
         }
     }
 
-    companion object Constant {
+    private companion object Constant {
         /**
          * The "COUNT(*)" SQL keyword.
          */
-        const val COUNT_ALL = "COUNT(*)"
+        private const val COUNT_ALL = "COUNT(*)"
     }
 }
