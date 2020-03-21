@@ -38,6 +38,12 @@ interface RestRequest {
         private val call: Call
     ) : RestRequest {
 
+        /**
+         * Secondary constructor to build a [Call].
+         *
+         * @param client The [OkHttpClient] to use to perform the [Request].
+         * @param request The [Request] to perform.
+         */
         constructor(client: OkHttpClient, request: Request) : this(
             client.newCall(request)
         )
