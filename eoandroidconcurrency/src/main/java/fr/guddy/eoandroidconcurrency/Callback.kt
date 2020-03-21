@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Handler
 import android.os.Looper
 import java.lang.ref.WeakReference
+import java.util.concurrent.CountDownLatch
 
 /**
  * Interface to describe the contract of being "called back".
@@ -105,6 +106,49 @@ interface Callback<T> : Disposable {
          */
         override fun dispose() {
             activity.clear()
+        }
+    }
+
+    /**
+     * Convenient class for testing with [CountDownLatch] object.
+     *
+     * @property countDownLatch [CountDownLatch] to decrement when accepting data.
+     */
+    abstract class WithCountDownLatch<R>(
+        private val countDownLatch: CountDownLatch
+    ) : Callback<R> {
+
+        /**
+         * Decrement the [CountDownLatch].
+         *
+         * @param data The data received.
+         */
+        override fun accept(data: R) {
+            countDownLatch.countDown()
+        }
+    }
+
+    /**
+     * Convenient class for faking and testing.
+     *
+     * @property data The data accepted.
+     * @param countDownLatch [CountDownLatch] to decrement when accepting data.
+     */
+    class Fake<R>(
+        var data: R? = null,
+        countDownLatch: CountDownLatch
+    ) : WithCountDownLatch<R>(countDownLatch) {
+        /**
+         * Store data.
+         *
+         * @param data The data received.
+         */
+        override fun accept(data: R) {
+            this.data = data
+            super.accept(data)
+        }
+
+        override fun dispose() {
         }
     }
 }
