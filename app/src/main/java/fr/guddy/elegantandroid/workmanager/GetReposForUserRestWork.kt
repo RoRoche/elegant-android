@@ -29,10 +29,7 @@ class GetReposForUserRestWork(
      */
     override fun doWork(): Result {
         val dbHelper = ElegantAndroidDbHelper(
-            applicationContext,
-            listOf(
-                RepoTable()
-            )
+            applicationContext
         )
         try {
             val data = GetReposForUserRestWorkData(

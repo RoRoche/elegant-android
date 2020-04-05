@@ -9,14 +9,14 @@ import fr.guddy.eoandroidpersistence.Table
 /**
  * Implementation of [SQLiteOpenHelper].
  *
- * @param tables The list of [Table] in the database.
  * @param context The [Context] to be used.
  */
 class ElegantAndroidDbHelper(
-    tables: List<Table>,
     context: Context
 ) : OpenHelperWithTables(
-    tables,
+    listOf(
+        RepoTable()
+    ),
     context,
     NAME,
     VERSION

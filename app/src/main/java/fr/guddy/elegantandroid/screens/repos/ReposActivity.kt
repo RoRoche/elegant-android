@@ -13,7 +13,6 @@ import fr.guddy.elegantandroid.databinding.ReposBinding
 import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.persistence.DbReposByOwner
 import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
-import fr.guddy.elegantandroid.persistence.RepoTable
 import fr.guddy.elegantandroid.persistence.queries.SelectReposByOwner
 import fr.guddy.elegantandroid.screens.repo.RepoActivityDestination
 import fr.guddy.elegantandroid.workmanager.GetReposForUserManagedRestRequest
@@ -92,8 +91,7 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
         setContentView(binding.root)
 
         dbHelper = ElegantAndroidDbHelper(
-            applicationContext,
-            listOf(RepoTable())
+            applicationContext
         )
         val linearLayoutManager = LinearLayoutManager(this)
         binding.recyclerView.apply {

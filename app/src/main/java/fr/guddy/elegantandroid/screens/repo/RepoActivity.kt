@@ -7,7 +7,6 @@ import fr.guddy.elegantandroid.databinding.ActivityRepoBinding
 import fr.guddy.elegantandroid.domain.Repo
 import fr.guddy.elegantandroid.persistence.DbRepoById
 import fr.guddy.elegantandroid.persistence.ElegantAndroidDbHelper
-import fr.guddy.elegantandroid.persistence.RepoTable
 import fr.guddy.elegantandroid.ui.DetailRepo
 import fr.guddy.eoandroidconcurrency.Callback
 import fr.guddy.eoandroidconcurrency.Job
@@ -55,8 +54,7 @@ class RepoActivity : AppCompatActivity() {
         binding = ActivityRepoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         dbHelper = ElegantAndroidDbHelper(
-            applicationContext,
-            listOf(RepoTable())
+            applicationContext
         )
         repoViewState = MutableViewState(
             lifecycleOwner = this,
