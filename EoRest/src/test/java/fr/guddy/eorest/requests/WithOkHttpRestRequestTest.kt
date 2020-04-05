@@ -6,6 +6,7 @@ import okhttp3.Request
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.amshove.kluent.shouldBe
+import org.amshove.kluent.shouldEqual
 import org.junit.After
 import org.junit.Test
 
@@ -37,7 +38,7 @@ class WithOkHttpRestRequestTest {
                 .build()
         ).response()
         response.isSuccessful.shouldBe(true)
-        response.body!!.string().shouldBe("Hello World!")
-        server.takeRequest().path!!.shouldBe("/v1/greetings")
+        response.body!!.string().shouldEqual("Hello World!")
+        server.takeRequest().path!!.shouldEqual("/v1/greetings")
     }
 }
