@@ -3,37 +3,27 @@ package fr.guddy.elegantandroid.persistence
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import fr.guddy.eoandroidpersistence.OpenHelperWithTables
 import fr.guddy.eoandroidpersistence.Table
 
 /**
  * Implementation of [SQLiteOpenHelper].
  *
+ * @param tables The list of [Table] in the database.
  * @param context The [Context] to be used.
- * @property tables The list of [Table] in the database.
  */
 class ElegantAndroidDbHelper(
-    context: Context,
-    private val tables: List<Table>
-) : SQLiteOpenHelper(
+    tables: List<Table>,
+    context: Context
+) : OpenHelperWithTables(
+    tables,
     context,
     NAME,
-    null,
     VERSION
 ) {
     companion object {
         private const val VERSION = 1
         private const val NAME = "ElegantAndroid.db"
-    }
-
-    /**
-     * Create all [Table] in the database.
-     *
-     * @param db The database where to create the tables.
-     */
-    override fun onCreate(db: SQLiteDatabase?) {
-        tables.forEach {
-            it.create(db!!)
-        }
     }
 
     /**
@@ -44,9 +34,7 @@ class ElegantAndroidDbHelper(
      * @param newVersion The new version of the database.
      */
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        tables.forEach {
-            it.drop(db!!)
-        }
+        dropAllTables(db)
         onCreate(db)
     }
 
