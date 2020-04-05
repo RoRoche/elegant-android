@@ -23,6 +23,9 @@ class CallbackTest {
         fun thread() = this.thread
     }
 
+    /**
+     * Test that [Callback.OnMainThread] is called on main thread.
+     */
     @Test
     fun `test that CallbackOnMaiThread is called on main thread`() {
         val threadedCallback = ThreadedCallback()
