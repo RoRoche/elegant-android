@@ -23,20 +23,21 @@ class WithOkHttpRestRequestTest {
 
     @Test
     fun `test that Call is used to fetch a response`() {
-        server.enqueue(MockResponse().setBody("Hello World!"))
+        server.enqueue(MockResponse().setResponseCode(200).setBody("Hello World!"))
         server.start()
-        val baseUrl: HttpUrl = server.url("/v1/greetings")
-        RestRequest.WithOkHttp(
+        val baseUrl: HttpUrl = server.url("/v1")
+        val response = RestRequest.WithOkHttp(
             client = OkHttpClient(),
             request = Request.Builder()
                 .url(
                     baseUrl.newBuilder()
-                        .addPathSegment("v1")
                         .addPathSegment("greetings")
                         .build()
                 )
                 .build()
-        ).response().body!!.string().shouldBe("Hello World!")
+        ).response()
+        response.isSuccessful.shouldBe(true)
+        response.body!!.string().shouldBe("Hello World!")
         server.takeRequest().path!!.shouldBe("/v1/greetings")
     }
 }
