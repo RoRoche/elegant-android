@@ -5,8 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import fr.guddy.elegantandroid.persistence.orders.CreateTableRepo
 import fr.guddy.elegantandroid.persistence.orders.DropTableRepoIfExists
 import fr.guddy.eoandroidpersistence.OpenHelperWithSqlOrders
-import fr.guddy.eoandroidpersistence.orders.migration.ResetDbDowngrade
-import fr.guddy.eoandroidpersistence.orders.migration.ResetDbUpgrade
+import fr.guddy.eoandroidpersistence.orders.migration.ResetMigration
 
 /**
  * Implementation of [SQLiteOpenHelper].
@@ -16,10 +15,10 @@ import fr.guddy.eoandroidpersistence.orders.migration.ResetDbUpgrade
 class ElegantAndroidDbHelper(
     context: Context
 ) : OpenHelperWithSqlOrders(
-    CreateTableRepo(
+    createTablesSqlOrder = CreateTableRepo(
         RepoTable()
     ),
-    ResetDbUpgrade(
+    dbUpgrade = ResetMigration(
         DropTableRepoIfExists(
             RepoTable()
         ),
@@ -27,17 +26,9 @@ class ElegantAndroidDbHelper(
             RepoTable()
         )
     ),
-    ResetDbDowngrade(
-        DropTableRepoIfExists(
-            RepoTable()
-        ),
-        CreateTableRepo(
-            RepoTable()
-        )
-    ),
-    context,
-    NAME,
-    VERSION
+    context = context,
+    name = NAME,
+    version = VERSION
 ) {
     companion object {
         private const val VERSION = 1
