@@ -82,7 +82,7 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:$work_version"
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation project(path: ':eoandroidpersistence')
-    implementation project(path: ':EoRest')
+    implementation project(path: ':eorest')
     implementation project(path: ':eoandroidworkmanager')
     implementation project(path: ':eoandroidui')
     implementation project(path: ':eoandroidconcurrency')

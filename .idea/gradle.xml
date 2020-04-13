@@ -11,12 +11,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/EoRest" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/eoandroidconcurrency" />
             <option value="$PROJECT_DIR$/eoandroidpersistence" />
             <option value="$PROJECT_DIR$/eoandroidui" />
             <option value="$PROJECT_DIR$/eoandroidworkmanager" />
+            <option value="$PROJECT_DIR$/eorest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
