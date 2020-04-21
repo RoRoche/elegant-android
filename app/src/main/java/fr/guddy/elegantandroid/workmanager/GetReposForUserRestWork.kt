@@ -27,6 +27,7 @@ class GetReposForUserRestWork(
      *
      * @return The [Result] of the performed work.
      */
+    @Suppress("TooGenericExceptionCaught")
     override fun doWork(): Result {
         val dbHelper = ElegantAndroidDbHelper(
             applicationContext

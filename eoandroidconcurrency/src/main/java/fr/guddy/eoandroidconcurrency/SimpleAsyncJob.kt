@@ -22,6 +22,7 @@ class SimpleAsyncJob<T>(
      * @param onSuccess The [Callback] to be called when succeeding.
      * @param onError The [Callback] to be called when failing.
      */
+    @Suppress("TooGenericExceptionCaught")
     constructor(
         callable: Callable<T>,
         onSuccess: Callback<T>,
