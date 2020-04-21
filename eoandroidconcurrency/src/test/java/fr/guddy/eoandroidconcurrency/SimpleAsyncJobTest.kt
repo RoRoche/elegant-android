@@ -48,7 +48,7 @@ class SimpleAsyncJobTest {
     fun `test on error callback is called`() {
         SimpleAsyncJob<Boolean>(
             callable = Callable {
-                throw RuntimeException("Error")
+                throw FakeRuntimeException("Error")
             },
             onSuccess = onSuccess,
             onError = onError
@@ -56,4 +56,6 @@ class SimpleAsyncJobTest {
         countDownLatch.await()
         onError.data!!.message!!.shouldBe("Error")
     }
+
+    class FakeRuntimeException(message: String): RuntimeException(message)
 }

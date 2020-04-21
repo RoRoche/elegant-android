@@ -30,6 +30,7 @@ import fr.guddy.eoandroidpersistence.Table
  * @param limit Limits the number of rows returned by the query,
  *            formatted as LIMIT clause. Passing null denotes no LIMIT clause.
  */
+@Suppress("LongParameterList")
 class Select(
     private val db: SQLiteDatabase,
     private val distinct: Boolean = false,
