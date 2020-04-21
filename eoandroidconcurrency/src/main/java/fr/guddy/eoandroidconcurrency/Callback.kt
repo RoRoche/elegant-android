@@ -149,6 +149,7 @@ interface Callback<T> : Disposable {
         }
 
         override fun dispose() {
+            throw NotImplementedError()
         }
     }
 }

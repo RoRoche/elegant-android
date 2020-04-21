@@ -24,7 +24,7 @@ class CallbackTest {
         }
 
         override fun dispose() {
-            // does nothing
+            throw NotImplementedError()
         }
 
         fun data() = this.data

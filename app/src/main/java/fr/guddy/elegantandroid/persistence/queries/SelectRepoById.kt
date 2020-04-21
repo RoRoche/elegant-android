@@ -3,7 +3,6 @@ package fr.guddy.elegantandroid.persistence.queries
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import fr.guddy.elegantandroid.persistence.RepoTable
-import fr.guddy.eoandroidpersistence.Table
 import fr.guddy.eoandroidpersistence.queries.DbQuery
 import fr.guddy.eoandroidpersistence.queries.Select
 import fr.guddy.eoandroidpersistence.queries.Where
