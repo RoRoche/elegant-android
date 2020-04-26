@@ -1,10 +1,10 @@
-package fr.guddy.eoandroidpersistence
+package com.github.roroche.eoandroidpersistence
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import fr.guddy.eoandroidpersistence.orders.SqlOrder
-import fr.guddy.eoandroidpersistence.orders.migration.Migration
+import com.github.roroche.eoandroidpersistence.orders.SqlOrder
+import com.github.roroche.eoandroidpersistence.orders.migration.Migration
 
 /**
  * Class representing an [SQLiteOpenHelper] with a list of [Table].

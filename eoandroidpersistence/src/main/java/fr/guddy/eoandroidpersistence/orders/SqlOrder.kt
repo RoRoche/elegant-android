@@ -1,4 +1,4 @@
-package fr.guddy.eoandroidpersistence.orders
+package com.github.roroche.eoandroidpersistence.orders
 
 import android.database.sqlite.SQLiteDatabase
 

@@ -1,8 +1,8 @@
-package fr.guddy.eoandroidpersistence.queries
+package com.github.roroche.eoandroidpersistence.queries
 
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.eoandroidpersistence.Persistable
-import fr.guddy.eoandroidpersistence.Table
+import com.github.roroche.eoandroidpersistence.Persistable
+import com.github.roroche.eoandroidpersistence.Table
 
 /**
  * [DbQuery] to perform a bulk insert of multiple objects in database.

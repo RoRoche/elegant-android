@@ -1,8 +1,8 @@
-package fr.guddy.eoandroidpersistence.orders.migration
+package com.github.roroche.eoandroidpersistence.orders.migration
 
 import android.database.sqlite.SQLiteDatabase
-import fr.guddy.eoandroidpersistence.Table
-import fr.guddy.eoandroidpersistence.orders.SqlOrder
+import com.github.roroche.eoandroidpersistence.Table
+import com.github.roroche.eoandroidpersistence.orders.SqlOrder
 
 /**
  * Database migration.

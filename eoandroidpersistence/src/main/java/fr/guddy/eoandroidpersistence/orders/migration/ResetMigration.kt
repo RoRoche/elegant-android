@@ -1,6 +1,6 @@
-package fr.guddy.eoandroidpersistence.orders.migration
+package com.github.roroche.eoandroidpersistence.orders.migration
 
-import fr.guddy.eoandroidpersistence.orders.SqlOrder
+import com.github.roroche.eoandroidpersistence.orders.SqlOrder
 
 /**
  * Simple implementation of [Migration] that drops all the tables and re-create them fro scratch.

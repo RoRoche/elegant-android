@@ -1,4 +1,4 @@
-package fr.guddy.eoandroidpersistence
+package com.github.roroche.eoandroidpersistence
 
 import android.content.ContentValues
 

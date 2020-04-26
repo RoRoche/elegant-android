@@ -1,4 +1,4 @@
-package fr.guddy.eoandroidpersistence
+package com.github.roroche.eoandroidpersistence
 
 /**
  * Interface that describes a SQLite table.

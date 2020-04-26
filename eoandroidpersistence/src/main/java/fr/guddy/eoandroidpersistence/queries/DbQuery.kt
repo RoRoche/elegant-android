@@ -1,4 +1,4 @@
-package fr.guddy.eoandroidpersistence.queries
+package com.github.roroche.eoandroidpersistence.queries
 
 /**
  * Interface describing a query in database.
