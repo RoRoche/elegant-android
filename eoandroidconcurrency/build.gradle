@@ -68,7 +68,7 @@ dependencies {
 ext {
     PUBLISH_GROUP_ID = "com.github.roroche"
     PUBLISH_ARTIFACT_ID = "eo-android-concurrency"
-    PUBLISH_VERSION = "0.0.1-SNAPSHOT"
+    PUBLISH_VERSION = "0.0.2"
     PUBLISH_DESCRIPTION = "Kotlin library for Android to deal with concurrency in an EO way"
 }
 

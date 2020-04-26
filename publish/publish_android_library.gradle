@@ -121,3 +121,10 @@ publishing {
 signing {
     sign publishing.publications
 }
+
+nexusStaging {
+    packageGroup = PUBLISH_GROUP_ID
+    stagingProfileId = '6ab921521f976'
+    username = ossrhUsername
+    password = ossrhPassword
+}
