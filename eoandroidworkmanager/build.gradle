@@ -57,3 +57,14 @@ dependencies {
     implementation "androidx.work:work-runtime:$work_version"
     implementation "androidx.work:work-runtime-ktx:$work_version"
 }
+
+//region Publishing
+ext {
+    PUBLISH_GROUP_ID = "com.github.roroche"
+    PUBLISH_ARTIFACT_ID = "eo-android-workmanager"
+    PUBLISH_VERSION = "0.0.1-SNAPSHOT"
+    PUBLISH_DESCRIPTION = "Kotlin library for Android to deal with WorkManager in an EO way"
+}
+
+apply from: "${rootProject.projectDir}/publish/publish_android_library.gradle"
+//endregion

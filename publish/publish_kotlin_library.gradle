@@ -1,7 +1,7 @@
 //region Sources JAR
 task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
-    from android.sourceSets.main.java.source
+    from sourceSets.main.allSource
 }
 //endregion
 
@@ -68,7 +68,7 @@ publishing {
             artifactId PUBLISH_ARTIFACT_ID
             version PUBLISH_VERSION
 
-            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+            artifact("$buildDir/libs/${project.getName()}.jar")
             artifact sourcesJar
             artifact(tasks.getByName("dokkaJar"))
 

@@ -27,4 +27,6 @@ ext {
     PUBLISH_VERSION = "0.0.1-SNAPSHOT"
     PUBLISH_DESCRIPTION = "Kotlin library to consume REST API in an EO way"
 }
+
+apply from: "${rootProject.projectDir}/publish/publish_kotlin_library.gradle"
 //endregion
