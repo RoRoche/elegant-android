@@ -24,7 +24,7 @@ dokka {
 ext {
     PUBLISH_GROUP_ID = "com.github.roroche"
     PUBLISH_ARTIFACT_ID = "eo-rest"
-    PUBLISH_VERSION = "0.0.1-SNAPSHOT"
+    PUBLISH_VERSION = "0.0.1"
     PUBLISH_DESCRIPTION = "Kotlin library to consume REST API in an EO way"
 }
 

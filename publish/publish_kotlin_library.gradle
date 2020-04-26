@@ -68,7 +68,7 @@ publishing {
             artifactId PUBLISH_ARTIFACT_ID
             version PUBLISH_VERSION
 
-            artifact("$buildDir/libs/${project.getName()}.jar")
+            artifact("$buildDir/libs/${project.getName()}-${version}.jar")
             artifact sourcesJar
             artifact(tasks.getByName("dokkaJar"))
 
