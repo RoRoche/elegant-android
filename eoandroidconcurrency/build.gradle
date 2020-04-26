@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'org.jetbrains.dokka-android'
-apply from: '../buildscripts/jacoco.gradle'
+apply plugin: 'org.jetbrains.dokka'
+apply from: "${rootProject.projectDir}/buildscripts/jacoco.gradle"
 
 android {
     compileSdkVersion 29
@@ -32,7 +32,10 @@ android {
 
     dokka {
         outputFormat = 'html'
-        outputDirectory = "$buildDir/javadoc"
+        outputDirectory = "$buildDir/dokka"
+        configuration {
+            moduleName = 'eo-android-concurrency'
+        }
     }
 
     testOptions {
@@ -41,6 +44,10 @@ android {
         unitTests {
             includeAndroidResources = true
         }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
     }
 }
 
@@ -56,3 +63,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+//region Publishing
+ext {
+    PUBLISH_GROUP_ID = "com.github.roroche"
+    PUBLISH_ARTIFACT_ID = "eo-android-concurrency"
+    PUBLISH_VERSION = "0.0.1-SNAPSHOT"
+    PUBLISH_DESCRIPTION = "Kotlin library for Android to deal with concurrency in an EO way"
+}
+
+apply from: "${rootProject.projectDir}/publish/publish_android_library.gradle"
+//endregion

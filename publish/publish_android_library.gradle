@@ -1,0 +1,123 @@
+//region Sources JAR
+task sourcesJar(type: Jar) {
+    archiveClassifier.set("sources")
+    from android.sourceSets.main.java.source
+}
+//endregion
+
+//region Dokka JAR
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/dokka"
+    configuration {
+        moduleName = PUBLISH_ARTIFACT_ID
+    }
+}
+
+task dokkaJar(type: Jar) {
+    group = JavaBasePlugin.DOCUMENTATION_GROUP
+    description = "Assembles Kotlin docs with Dokka"
+    archiveClassifier.set("javadoc")
+    from dokka
+    dependsOn dokka
+}
+//endregion
+
+//region Artifacts
+artifacts {
+    archives sourcesJar
+    archives dokkaJar
+}
+//endregion
+
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+group = PUBLISH_GROUP_ID
+version = PUBLISH_VERSION
+
+ext["signing.keyId"] = ''
+ext["signing.password"] = ''
+ext["signing.secretKeyRingFile"] = ''
+ext["ossrhUsername"] = ''
+ext["ossrhPassword"] = ''
+
+File secretPropsFile = project.rootProject.file('local.properties')
+if (secretPropsFile.exists()) {
+    println "Found secret props file, loading props"
+    Properties p = new Properties()
+    p.load(new FileInputStream(secretPropsFile))
+    p.each { name, value ->
+        ext[name] = value
+    }
+} else {
+    println "No props file, loading env vars"
+    ext["signing.keyId"] = System.getenv('SIGNING_KEY_ID')
+    ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
+    ext["signing.secretKeyRingFile"] = System.getenv('SIGNING_SECRET_KEY_RING_FILE')
+    ext["ossrhUsername"] = System.getenv('OSSRH_USERNAME')
+    ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId PUBLISH_GROUP_ID
+            artifactId PUBLISH_ARTIFACT_ID
+            version PUBLISH_VERSION
+
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+            artifact sourcesJar
+            artifact(tasks.getByName("dokkaJar"))
+
+            pom {
+                name = PUBLISH_ARTIFACT_ID
+                description = PUBLISH_DESCRIPTION
+                url = 'https://github.com/RoRoche/elegant-android'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'roroche'
+                        name = 'Romain Rochegude'
+                        email = 'romain.rochegude@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:github.com/RoRoche/elegant-android.git'
+                    developerConnection = 'scm:git:ssh://github.com/RoRoche/elegant-android.git'
+                    url = 'https://github.com/RoRoche/elegant-android/tree/master'
+                }
+                withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+                    project.configurations.implementation.allDependencies.each {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "sonatype"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications
+}
