@@ -7,7 +7,9 @@ import androidx.work.ListenableWorker
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.Operation
+import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import java.util.*
 
 /**
  * Class describing a REST request executing one time.
@@ -78,6 +80,11 @@ class OneTimeRestWorkRequest(
     )
 
     /**
+     * @return [UUID] of the request.
+     */
+    override fun id(): UUID = worker.id
+
+    /**
      * @return The WorkManager's operation corresponding the REST request.
      */
     override fun operation() = operation
@@ -85,7 +92,12 @@ class OneTimeRestWorkRequest(
     /**
      * @return [LiveData] to be notified of the REST request execution status, from the worker's ID.
      */
-    override fun liveData() = workManager.getWorkInfoByIdLiveData(worker.id)
+    override fun workInfoLiveData() = workManager.getWorkInfoByIdLiveData(worker.id)
+
+    /**
+     * @return [WorkInfo] to be get of the REST request execution status.
+     */
+    override fun workInfo() = workManager.getWorkInfoById(worker.id)
 
     /**
      * Cancel the REST request by its worker's ID.

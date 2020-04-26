@@ -3,11 +3,19 @@ package com.github.roroche.eoandroidworkmanager
 import androidx.lifecycle.LiveData
 import androidx.work.Operation
 import androidx.work.WorkInfo
+import com.google.common.util.concurrent.ListenableFuture
+import java.util.*
 
 /**
  * Interface describing a REST request that can be performed and managed by WorkManager.
  */
 interface ManagedRestRequest {
+
+    /**
+     * @return [UUID] of the request.
+     */
+    fun id(): UUID
+
     /**
      * @return The WorkManager's operation corresponding the REST request.
      */
@@ -16,7 +24,12 @@ interface ManagedRestRequest {
     /**
      * @return [LiveData] to be notified of the REST request execution status.
      */
-    fun liveData(): LiveData<WorkInfo>
+    fun workInfoLiveData(): LiveData<WorkInfo>
+
+    /**
+     * @return [WorkInfo] to be get of the REST request execution status.
+     */
+    fun workInfo(): ListenableFuture<WorkInfo>
 
     /**
      * Cancel the REST request.

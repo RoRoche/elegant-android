@@ -108,7 +108,7 @@ class ReposActivity : AppCompatActivity(), OnRepoClickListener {
             workManager = WorkManager.getInstance(applicationContext),
             baseUrl = "https://api.github.com/",
             user = "RoRoche"
-        ).liveData().observe(
+        ).workInfoLiveData().observe(
             this,
             Observer { workInfo ->
                 when (workInfo?.state) {
