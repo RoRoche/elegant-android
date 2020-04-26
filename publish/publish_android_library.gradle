@@ -34,14 +34,14 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 group = PUBLISH_GROUP_ID
-version = PUBLISH_VERSION
+version = project.version
 
 ext["signing.keyId"] = ''
 ext["signing.password"] = ''
 ext["signing.secretKeyRingFile"] = ''
 ext["ossrhUsername"] = ''
 ext["ossrhPassword"] = ''
-ext["stagingProfileId"] = ''
+ext["ossStagingProfileId"] = ''
 
 File secretPropsFile = project.rootProject.file('local.properties')
 if (secretPropsFile.exists()) {
@@ -58,15 +58,23 @@ if (secretPropsFile.exists()) {
     ext["signing.secretKeyRingFile"] = System.getenv('SIGNING_SECRET_KEY_RING_FILE')
     ext["ossrhUsername"] = System.getenv('OSSRH_USERNAME')
     ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
-    ext["stagingProfileId"] = System.getenv('STAGING_PROFILE_ID')
+    ext["ossStagingProfileId"] = System.getenv('STAGING_PROFILE_ID')
 }
+
+if (project.hasProperty('newVersion')) {
+    project.version = project.newVersion
+} else {
+    project.version = '0.0.1'
+}
+
+println "Publishing ${project.getName()} with version " + project.version
 
 publishing {
     publications {
         release(MavenPublication) {
             groupId PUBLISH_GROUP_ID
             artifactId PUBLISH_ARTIFACT_ID
-            version PUBLISH_VERSION
+            version project.version
 
             artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
             artifact sourcesJar
@@ -126,7 +134,7 @@ signing {
 
 nexusStaging {
     packageGroup = PUBLISH_GROUP_ID
-    stagingProfileId = stagingProfileId
+    stagingProfileId = ossStagingProfileId
     username = ossrhUsername
     password = ossrhPassword
 }
