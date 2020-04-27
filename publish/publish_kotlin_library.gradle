@@ -7,11 +7,8 @@ task sourcesJar(type: Jar) {
 
 //region Dokka JAR
 dokka {
-    outputFormat = 'html'
+    outputFormat = 'javadoc'
     outputDirectory = "$buildDir/dokka"
-    configuration {
-        moduleName = PUBLISH_ARTIFACT_ID
-    }
 }
 
 task dokkaJar(type: Jar) {

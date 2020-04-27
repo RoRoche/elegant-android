@@ -31,11 +31,8 @@ android {
     }
 
     dokka {
-        outputFormat = 'html'
+        outputFormat = 'javadoc'
         outputDirectory = "$buildDir/dokka"
-        configuration {
-            moduleName = 'eo-android-concurrency'
-        }
     }
 
     testOptions {
