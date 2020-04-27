@@ -4,7 +4,7 @@
 ./gradlew -PnewVersion=0.0.2 eoandroidconcurrency:clean
 ./gradlew -PnewVersion=0.0.2 eoandroidconcurrency:assemble
 ./gradlew -PnewVersion=0.0.2 eoandroidconcurrency:publishReleasePublicationToSonatypeRepository
-./gradlew closeAndReleaseRepository
+#./gradlew closeAndReleaseRepository
 #./gradlew eoandroidworkmanager:clean
 #./gradlew eoandroidworkmanager:assemble
 #./gradlew eoandroidworkmanager:publishReleasePublicationToSonatypeRepository
