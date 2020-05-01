@@ -12,6 +12,24 @@ https://app.bitrise.io/app/4b269ce2e4a54a10[image:https://app.bitrise.io/app/4b2
 
 https://www.codacy.com/manual/romain-rochegude_2/elegant-android?utm_source=github.com&utm_medium=referral&utm_content=RoRoche/elegant-android&utm_campaign=Badge_Grade[image:https://api.codacy.com/project/badge/Grade/d7359fec6496408995789436543473d9[Codacy Badge]]
 
+image::https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=alert_status[Quality Gate Status]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=bugs[Bugs]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=code_smells[Code
+Smells]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=duplicated_lines_density[Duplicated
+Lines (%)]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=ncloc[Lines
+of Code]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=sqale_rating[Maintainability
+Rating]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=reliability_rating[Reliability
+Rating]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=security_rating[Security
+Rating]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=sqale_index[Technical
+Debt]]
+https://sonarcloud.io/dashboard?id=RoRoche_elegant-android[image:https://sonarcloud.io/api/project_badges/measure?project=RoRoche_elegant-android&metric=vulnerabilities[Vulnerabilities]]
+
 https://codecov.io/gh/RoRoche/elegant-android[image:https://codecov.io/gh/RoRoche/elegant-android/branch/master/graph/badge.svg[codecov]]
 
 https://hitsofcode.com/view/github/RoRoche/elegant-android[image:https://hitsofcode.com/github/RoRoche/elegant-android[Hits-of-Code]]
