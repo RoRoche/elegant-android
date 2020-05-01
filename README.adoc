@@ -1,0 +1,19 @@
+= ElegantAndroid
+
+Android project applying Elegant Objects principles
+
+== Badges
+
+image:https://www.elegantobjects.org/badge.svg[Elegant Objects]
+image:https://www.elegantobjects.org/intellij-idea.svg[intellij-idea]
+https://app.bitrise.io/app/4b269ce2e4a54a10[image:https://app.bitrise.io/app/4b269ce2e4a54a10/status.svg?token=cB1XomN4oEA59zjl1ijlig&branch=master[Build
+Status]]
+https://www.codacy.com/manual/romain-rochegude_2/elegant-android?utm_source=github.com&utm_medium=referral&utm_content=RoRoche/elegant-android&utm_campaign=Badge_Grade[image:https://api.codacy.com/project/badge/Grade/d7359fec6496408995789436543473d9[Codacy
+Badge]]
+https://codecov.io/gh/RoRoche/elegant-android[image:https://codecov.io/gh/RoRoche/elegant-android/branch/master/graph/badge.svg[codecov]]
+https://hitsofcode.com/view/github/RoRoche/elegant-android[image:https://hitsofcode.com/github/RoRoche/elegant-android[Hits-of-Code]]
+image::https://snyk.io/test/github/RoRoche/elegant-android/badge.svg[Known Vulnerabilities]
+
+== Libraries
+
+TODO
