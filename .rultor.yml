@@ -1,0 +1,19 @@
+docker:
+  image: "g4s8/rultor-android"
+decrypt:
+  settings.xml: "repo/settings.xml.asc"
+  pubring.gpg: "repo/pubring.gpg.asc"
+  secring.gpg: "repo/secring.gpg.asc"
+release:
+  script: |
+    git commit -am "${tag}"
+    ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:clean
+    ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:assemble
+    ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:publishReleasePublicationToSonatypeRepository
+    #./gradlew eoandroidworkmanager:clean
+    #./gradlew eoandroidworkmanager:assemble
+    #./gradlew eoandroidworkmanager:publishReleasePublicationToSonatypeRepository
+    ./gradlew -PnewVersion="${tag}" eorest:clean
+    ./gradlew -PnewVersion="${tag}" eorest:jar
+    ./gradlew -PnewVersion="${tag}" eorest:publishReleasePublicationToSonatypeRepository
+    ./gradlew closeAndReleaseRepository
