@@ -1,5 +1,7 @@
 = ElegantAndroid
 
+image::assets/icon.png[Icon]
+
 Android project applying Elegant Objects principles
 
 == Badges
@@ -40,3 +42,5 @@ image::https://snyk.io/test/github/RoRoche/elegant-android/badge.svg[Known Vulne
 == Libraries
 
 TODO
+
+include::assets/icon_credits.adoc[]
