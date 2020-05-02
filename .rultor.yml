@@ -1,5 +1,7 @@
 docker:
   image: "g4s8/rultor-android"
+env:
+  ANDROID_SDK_ROOT: /opt/android
 decrypt:
   settings.xml: "repo/settings.xml.asc"
   pubring.gpg: "repo/pubring.gpg.asc"
