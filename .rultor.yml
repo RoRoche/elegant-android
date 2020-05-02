@@ -6,7 +6,7 @@ decrypt:
   secring.gpg: "repo/secring.gpg.asc"
 release:
   script: |
-    git commit -m --allow-empty ${tag}
+    git commit -am --allow-empty ${tag}
     ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:clean
     ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:assemble
     ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:publishReleasePublicationToSonatypeRepository
