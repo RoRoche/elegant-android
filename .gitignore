@@ -1,4 +1,6 @@
 settings.xml
+private_key.asc
+public_key.asc
 *.gpg
 *.iml
 .gradle
