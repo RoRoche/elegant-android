@@ -1,6 +1,6 @@
 = Elegant Android
 
-image::assets/icon.png[Icon]
+image::assets/icon.png[Icon,200]
 
 Android project applying Elegant Objects principles.
 
@@ -43,5 +43,8 @@ image::https://snyk.io/test/github/RoRoche/elegant-android/badge.svg[Known Vulne
 
 TODO
 
-include::assets/icon_credits.adoc[]
+== Icon credits
+
+Icons made by https://www.flaticon.com/authors/freepik[Freepik] from
+https://www.flaticon.com/[www.flaticon.com]
 
