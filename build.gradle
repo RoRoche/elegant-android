@@ -13,6 +13,9 @@ buildscript {
         jcenter()
         maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
         mavenCentral()
+	maven {
+      		url "https://plugins.gradle.org/m2/"
+    	}
     }
     dependencies {
 //        classpath 'com.android.tools.build:gradle:3.6.1'
@@ -24,6 +27,7 @@ buildscript {
         // in the individual module build.gradle files
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.10.1"
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.21.2"
+	classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
     }
 }
 
@@ -44,7 +48,16 @@ task clean(type: Delete) {
 }
 
 apply plugin: 'io.codearte.nexus-staging'
+apply plugin: "org.sonarqube"
 
 subprojects {
     apply plugin: "com.vanniktech.android.junit.jacoco"
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "RoRoche_elegant-android"
+        property "sonar.organization", "roroche"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
