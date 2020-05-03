@@ -1,12 +1,11 @@
 import sys
 import argparse
-import json
 import requests
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-  "--token", 
-  help="Bitrise Access Token"
+  "--tokenFilePath", 
+  help="Path to txt file that contains Bitrise Access Token"
 )
 parser.add_argument(
   "--appSlug", 
@@ -22,8 +21,11 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
+tokenFile = open(args.tokenFilePath, 'r')
+token = tokenFile.read()
+tokenFile.close()
 url = 'https://api.bitrise.io/v0.1/apps/' + args.appSlug + '/builds'
-headers = 'Authorization: ' + args.token
+headers = 'Authorization: ' + token
 data = {
   "hook_info": {
     "type": "bitrise",
@@ -46,4 +48,8 @@ response = requests.post(
   headers = headers
 )
 
-assert response.status_code == 200, "Bitrise API returns a not OK status"
+if response.status_code != 200:
+  print >> sys.stderr, "Bitrise API returns a not OK status"
+  sys.exit(1)
+else:
+  print("Bitrise job started successfully")

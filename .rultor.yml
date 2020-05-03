@@ -10,5 +10,4 @@ decrypt:
 release:
   script: |
     git commit --allow-empty -am "${tag}"
-    TOKEN=$(cat /home/r/bitrise.txt)
-    python3 repo/scripts/startBitriseBuild.py --token ${TOKEN} --appSlug 4b269ce2e4a54a10 --workflowId deploy --gitTag ${tag}
+    python3 /home/r/repo/scripts/startBitriseBuild.py --tokenFilePath /home/r/bitrise.txt --appSlug 4b269ce2e4a54a10 --workflowId deploy --gitTag ${tag}
