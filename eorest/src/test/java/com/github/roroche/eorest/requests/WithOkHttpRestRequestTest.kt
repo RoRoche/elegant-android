@@ -23,7 +23,7 @@ class WithOkHttpRestRequestTest {
     }
 
     @Test
-    fun `test that Call is used to fetch a response`() {
+    fun testCallIsUsedToFetchResponse() {
         server.enqueue(MockResponse().setResponseCode(200).setBody("Hello World!"))
         server.start()
         val baseUrl: HttpUrl = server.url("/v1")

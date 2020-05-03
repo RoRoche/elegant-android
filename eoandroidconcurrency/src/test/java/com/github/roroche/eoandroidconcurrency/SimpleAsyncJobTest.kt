@@ -29,7 +29,7 @@ class SimpleAsyncJobTest {
      * Test onSuccess [Callback] is called.
      */
     @Test
-    fun `test on success callback is called`() {
+    fun testOnSuccessCallbackIsCalled() {
         SimpleAsyncJob<Boolean>(
             callable = Callable {
                 true
@@ -45,7 +45,7 @@ class SimpleAsyncJobTest {
      * Test onError [Callback] is called.
      */
     @Test
-    fun `test on error callback is called`() {
+    fun testOnErrorCallbackIsCalled() {
         SimpleAsyncJob<Boolean>(
             callable = Callable {
                 throw FakeRuntimeException("Error")

@@ -34,7 +34,7 @@ class SuccessfulRestRequestTest {
      * Test successful [RestRequest] returns the [Response].
      */
     @Test
-    fun `successful request returns response`() {
+    fun testSuccessfulRequestReturnsResponse() {
         every {
             response.isSuccessful
         } returns true
@@ -47,7 +47,7 @@ class SuccessfulRestRequestTest {
      * Test unsuccessful [RestRequest] throws a [RestRequestFailureException].
      */
     @Test
-    fun `unsuccessful request throws exception`() {
+    fun testUnsuccessfulRequestThrowsException() {
         every {
             response.isSuccessful
         } returns false

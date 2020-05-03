@@ -34,7 +34,7 @@ class WithBodyRestRequestTest {
      * Test [RestRequest] with body returns the [Response].
      */
     @Test
-    fun `request with body returns response`() {
+    fun testRequestWithBodyReturnsResponse() {
         every {
             response.body
         } returns mockk {
@@ -51,7 +51,7 @@ class WithBodyRestRequestTest {
      * Test [RestRequest] without body throws a [NoBodyRestResponseException].
      */
     @Test
-    fun `request without body throws exception`() {
+    fun testRequestWithoutBodyThrowsException() {
         every {
             response.body
         } returns null
