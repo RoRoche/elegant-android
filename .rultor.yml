@@ -1,13 +1,5 @@
-docker:
-  image: "coala/rultor-python"
-  as_root: true
 architect:
   - RoRoche
-install:
-  - "pip3 install requests"
-decrypt:
-  bitrise.txt: "repo/secrets/bitrise.txt.asc"
 release:
   script: |
     git commit --allow-empty -am "${tag}"
-    python3 /home/r/repo/scripts/startBitriseBuild.py --tokenFilePath /home/r/bitrise.txt --appSlug 4b269ce2e4a54a10 --workflowId deploy --gitTag ${tag}
