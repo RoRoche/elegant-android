@@ -3,22 +3,10 @@ import argparse
 import requests
 
 parser = argparse.ArgumentParser()
-parser.add_argument(
-  "--tokenFilePath", 
-  help="Path to txt file that contains Bitrise Access Token"
-)
-parser.add_argument(
-  "--appSlug", 
-  help="Application slug"
-)
-parser.add_argument(
-  "--workflowId", 
-  help="The workflow ID of the build to start"
-)
-parser.add_argument(
-  "--gitTag", 
-  help="The Git tag to consider"
-)
+parser.add_argument("--tokenFilePath", help="Path to txt file that contains Bitrise Access Token")
+parser.add_argument("--appSlug", help="Application slug")
+parser.add_argument("--workflowId", help="The workflow ID of the build to start")
+parser.add_argument("--gitTag", help="The Git tag to consider")
 args = parser.parse_args()
 
 tokenFile = open(args.tokenFilePath, 'r')
