@@ -1,4 +1,5 @@
 settings.xml
+secrets/bitrise.txt
 private_key.asc
 public_key.asc
 *.gpg

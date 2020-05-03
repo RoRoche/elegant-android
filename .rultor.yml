@@ -1,18 +1,14 @@
 docker:
-  image: "g4s8/rultor-android"
-env:
-  ANDROID_SDK_ROOT: /opt/android
+  image: "coala/rultor-python"
+  as_root: true
+architect:
+  - RoRoche
+install:
+  - "pip3 install requests"
 decrypt:
-  settings.xml: "repo/settings.xml.asc"
-  pubring.gpg: "repo/pubring.gpg.asc"
-  secring.gpg: "repo/secring.gpg.asc"
+  bitrise.txt: "repo/secrets/bitrise.txt.asc"
 release:
   script: |
     git commit --allow-empty -am "${tag}"
-    ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:clean
-    ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:assemble
-    ./gradlew -PnewVersion="${tag}" eoandroidconcurrency:publishReleasePublicationToSonatypeRepository
-    ./gradlew -PnewVersion="${tag}" eorest:clean
-    ./gradlew -PnewVersion="${tag}" eorest:jar
-    ./gradlew -PnewVersion="${tag}" eorest:publishReleasePublicationToSonatypeRepository
-    ./gradlew closeAndReleaseRepository
+    TOKEN=$(cat /home/r/bitrise.txt)
+    python3 repo/scripts/startBitriseBuild.py --token ${TOKEN} --appSlug 4b269ce2e4a54a10 --workflowId deploy --gitTag ${tag}
