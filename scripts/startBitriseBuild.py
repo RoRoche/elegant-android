@@ -13,7 +13,7 @@ tokenFile = open(args.tokenFilePath, 'r')
 token = tokenFile.read()
 tokenFile.close()
 url = 'https://api.bitrise.io/v0.1/apps/' + args.appSlug + '/builds'
-headers = 'Authorization: ' + token
+headers={'Authorization: ' + token}
 data = {
   "hook_info": {
     "type": "bitrise",
@@ -37,7 +37,7 @@ response = requests.post(
 )
 
 if response.status_code != 200:
-  print >> sys.stderr, "Bitrise API returns a not OK status"
+  sys.stderr.write("Bitrise API returns a not OK status\n")
   sys.exit(1)
 else:
   print("Bitrise job started successfully")
