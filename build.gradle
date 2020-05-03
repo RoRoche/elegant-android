@@ -27,7 +27,8 @@ buildscript {
         // in the individual module build.gradle files
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.10.1"
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.21.2"
-	classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
+	    classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
+        classpath "de.marcphilipp.gradle:nexus-publish-plugin:0.4.0"
     }
 }
 
@@ -49,6 +50,7 @@ task clean(type: Delete) {
 
 apply plugin: 'io.codearte.nexus-staging'
 apply plugin: "org.sonarqube"
+apply plugin: "de.marcphilipp.nexus-publish"
 
 subprojects {
     apply plugin: "com.vanniktech.android.junit.jacoco"
