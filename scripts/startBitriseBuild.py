@@ -13,7 +13,7 @@ tokenFile = open(args.tokenFilePath, 'r')
 token = tokenFile.read()
 tokenFile.close()
 url = 'https://api.bitrise.io/v0.1/apps/' + args.appSlug + '/builds'
-headers={'Authorization: ' + token}
+headers = { 'Authorization': token }
 data = {
   "hook_info": {
     "type": "bitrise",
